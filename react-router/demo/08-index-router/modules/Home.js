@@ -1,3 +1,11 @@
-/**
- * Created by Administrator on 2016/11/6.
- */
+import React, { Component } from 'react';
+
+export default class Home extends Component {
+    render () {
+        return (
+            <div>
+                <p>Home</p>
+            </div>
+        )
+    }
+}

@@ -1,0 +1,9 @@
+﻿在路由中，其实就是在Route上面挂载组件，要巧妙运用{this.props.children}来进行导航的跳转；
+其次重要的思想就是路由嵌路由，一定要记住，一个Route上面就是挂载的一个路由；给当前选中的
+状态加上active，可以利用行间样式activeStyele={{   }}, 也可以利用activeClassName=“active”
+来在样式表中定义选中家状态；但是最好的办法请demo05中方法；
+
+06-params: 其实说的就是一个url传参问题；
+07-more-nesting: 其实说的就是一个路由嵌路由的问题，多级菜单就是运用的这个原理；
+08-index-router: 主要是解决导航初次加载时，在路由上默认挂载的组件，也就是初次加载的页面；请记住一定要在route里面配置IndexRoute
+09-index-Links: 主要解决了默认加载加载组件时active状态问题，一共有两种方法；详情请见anli中的code；
