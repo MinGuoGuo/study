@@ -80,7 +80,7 @@ class Header extends Component {
             </div>
         )
     }
-};
+}
 
 const  SubMenu = Menu.SubMenu;
 class Nav extends Component {
@@ -102,7 +102,7 @@ class Nav extends Component {
         console.log(info)
         this.setState({
             //openKeys: info.key
-            openKeys: info.open ? info.keyPath : info.keyPath.slice(1),
+            openKeys: info.open ? info.keyPath : info.keyPath.slice(1)
         })
     }
     render() {

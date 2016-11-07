@@ -7,3 +7,4 @@
 07-more-nesting: 其实说的就是一个路由嵌路由的问题，多级菜单就是运用的这个原理；
 08-index-router: 主要是解决导航初次加载时，在路由上默认挂载的组件，也就是初次加载的页面；请记住一定要在route里面配置IndexRoute
 09-index-Links: 主要解决了默认加载加载组件时active状态问题，一共有两种方法；详情请见anli中的code；
+10-clean-urls: 其实就是将url的哈希值展示出来，在地址栏中呈现出明了的url值，用了broeserHistory

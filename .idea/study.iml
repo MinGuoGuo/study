@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/ant/antd-demo/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/react-router/demo/01-setting-up/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/react-router/demo/02-reder-a-router/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/react-router/demo/03-nav-with-link/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/react-router/demo/04-nested-routes/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/react-router/demo/05-active-links/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/react-router/demo/06-params/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/react-router/demo/07-more-nesting/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/react-router/demo/08-index-router/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/react-router/demo/09-index-links/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/react-router/demo/10-clean-urls/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/react-router/demo/11-productionish-server/node_modules" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
