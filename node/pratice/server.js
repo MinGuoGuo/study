@@ -1,6 +1,5 @@
 /*
 var http = require('http');
-
 http.createServer((req, res) => {
     res.writeHead(200, {
         'Content-Type': 'text/plain'
@@ -25,4 +24,7 @@ const server = http.createServer((req, res) => {
 //对此端口进行监听
 server.listen(port, hostname, () => {
     console.log('我在监听服务器！')
-})
+});
+
+console.log(__filename);
+console.log(__dirname);
