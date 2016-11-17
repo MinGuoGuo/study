@@ -9,8 +9,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "fs": "0.0.1-security",
+    "multer": "^1.2.0",
     "mysql": "^2.12.0"
   }
 }
