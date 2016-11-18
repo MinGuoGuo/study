@@ -1,0 +1,15 @@
+
+html, body, #root {
+    height: 100%;
+    width: 100%;
+}
+.wrap {
+    text-align: center;
+    margin: 100px 400px;
+    background: #ccc;
+    height: 400px;
+    overflow: hidden;
+}
+h3 {
+    margin-top: 100px;
+}

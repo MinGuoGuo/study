@@ -15,7 +15,7 @@ class Counter extends Component {
             </div>
         )
     }
-};
+}
 
 
 //限制组件安全；
@@ -23,5 +23,5 @@ Counter.PropTypes = {
     sub: PropTypes.func.isRequired,
     add: PropTypes.func.isRequired,
     counter: PropTypes.number.isRequired
-}
+};
 export default Counter

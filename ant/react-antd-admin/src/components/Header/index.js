@@ -16,7 +16,7 @@ export default class Header extends React.Component {
   }
 
   render () {
-    const {user} = this.props
+    const {user} = this.props;
     return (
       <div className='ant-layout-header'>
         <Menu className="header-menu" onClick={this.handleClick}
