@@ -6,7 +6,9 @@
   "dependencies": {
     "antd": "^1.4.1",
     "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react-dom": "^15.1.0",
+    "react-redux": "^4.4.6",
+    "redux": "^3.6.0"
   },
   "devDependencies": {
     "atool-build": "^0.8.0",

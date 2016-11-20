@@ -16,6 +16,7 @@
       <excludeFolder url="file://$MODULE_DIR$/react-router/demo/09-index-links/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/react-router/demo/10-clean-urls/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/react-router/demo/11-productionish-server/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/redux/demo/node_modules" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

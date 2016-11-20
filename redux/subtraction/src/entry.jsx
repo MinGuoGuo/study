@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 import Counter from './component/counter.jsx';
 import { Provider } from 'react-redux';
