@@ -10,3 +10,5 @@ const number = (state = 0, action) => {
             return state;
     }
 };
+
+export default number;

@@ -1,0 +1,24 @@
+
+html, body, #root {
+    height: 100%;
+}
+.header {
+    height: 80px;
+    text-align: center;
+    background: #0452a7;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    line-height: 80px;
+    font-size: 20px;
+    width: 100%;
+}
+.nav {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 80px;
+    background: #F5F5F5;
+    width: 200px!important;
+}

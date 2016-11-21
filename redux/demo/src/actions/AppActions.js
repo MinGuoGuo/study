@@ -4,7 +4,7 @@ export const ADD = 'ADD';
 //导出一个减法的函数；
 export function sub() {
     return {
-        type: USB
+        type: SUB
     }
 }
 
