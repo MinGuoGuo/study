@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户列表</title>
+	<script src="js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>用户名</th>
+				<th>手机号</th>
+				<th>添加时间</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+</body>
+<script>
+	$.ajax({
+		url : '/user_info',
+		type: 'post',
+		data: {id: 1},
+		dataType: 'json',
+		success: function (data) {
+			var htmlData = '<tr>'+
+								'<td>'+data[0].id+'</td>'+
+								'<td>'+data[0].username+'</td>'+
+								'<td>'+data[0].phone+'</td>'+
+								'<td>'+data[0].addtime+'</td>'+
+							'</tr>';
+			$('table tbody').append(htmlData);
+		}
+	});
+</script>
+</html>

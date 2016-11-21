@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>首页</title>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script>
+		$(function () {
+			$('#list_user').on('click', function () {
+				$.ajax({
+					url : '/list_user',
+					type: 'post',
+					data: {id: 1},
+					dataType: 'json',
+					success: function (data) {
+						console.log(data);
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="button" id="list_user" value="哈" />
+	<a href="list.html">详情信息</a>
+</body>
+</html>

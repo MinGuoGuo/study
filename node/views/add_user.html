@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加用户</title>
+</head>
+<body>
+    姓名： <input id="name" type="text" />
+    <br>
+    性别： <input id="sex" type="text" />
+    <br>
+    年龄： <input id="age" type="text" />
+    <br>
+    电话： <input id="tel" type="text" />
+    <br>
+
+    <br>
+    <button id="btn">提交</button>
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+        $('#btn').on('click', function () {
+            var data = {
+                name: $('#name').val(),
+                sex: $('#sex').val(),
+                age: $('#age').val(),
+                tel: $('#tel').val()
+            };
+            $.get('/add_user', data, function (data) {
+                console.log(data);
+            })
+        });
+    </script>
+</body>
+</html>
