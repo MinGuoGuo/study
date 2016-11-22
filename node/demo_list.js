@@ -22,7 +22,7 @@ app.get('/list_user', function (req, res) {
 //添加接口
 app.get('/add_user', function (req, res) {
     var data = req.query;
-    console.log()
+    console.log();
     db.query('INSERT INTO students(name, sex, age, tel) VALUES("'+data.name+'",'+data.age+','+data.sex+','+data.tel+')', function(err, rows, fields){
         if (err) {
             console.log(err);
