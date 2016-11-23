@@ -5,6 +5,7 @@
   },
   "dependencies": {
     "antd": "^2.4.3",
+    "jquery": "^3.1.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-router": "^3.0.0"

@@ -42,7 +42,6 @@ export default class Sider extends Component {
     render() {
         return (
             <div>
-                <div className="header">我是头部咯！哈哈</div>
                 <Menu
                     mode="inline"
                     openKeys={this.state.openKeys}
@@ -53,10 +52,9 @@ export default class Sider extends Component {
                     className="nav"
                 >
                     <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
-                        <Menu.Item key="1">Option 1</Menu.Item>
-                        <Menu.Item key="2">Option 2</Menu.Item>
-                        <Menu.Item key="3">Option 3</Menu.Item>
-                        <Menu.Item key="4">Option 4</Menu.Item>
+                        <Menu.Item key="1"><Link to="/index">Option 1</Link></Menu.Item>
+                        <Menu.Item key="2"><Link>Option 2</Link></Menu.Item>
+                        <Menu.Item key="3"><Link>Option 3</Link></Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>Navigation Two</span></span>}>
                         <Menu.Item key="5">Option 5</Menu.Item>
@@ -71,6 +69,26 @@ export default class Sider extends Component {
                         <Menu.Item key="10">Option 10</Menu.Item>
                         <Menu.Item key="11">Option 11</Menu.Item>
                         <Menu.Item key="12">Option 12</Menu.Item>
+                        <Menu.Item key="13">Option 9</Menu.Item>
+                        <Menu.Item key="14">Option 10</Menu.Item>
+                        <Menu.Item key="15">Option 11</Menu.Item>
+                        <Menu.Item key="16">Option 12</Menu.Item>
+                        <Menu.Item key="17">Option 9</Menu.Item>
+                        <Menu.Item key="18">Option 10</Menu.Item>
+                        <Menu.Item key="19">Option 11</Menu.Item>
+                        <Menu.Item key="20">Option 12</Menu.Item>
+                        <Menu.Item key="21">Option 9</Menu.Item>
+                        <Menu.Item key="22">Option 10</Menu.Item>
+                        <Menu.Item key="23">Option 11</Menu.Item>
+                        <Menu.Item key="24">Option 12</Menu.Item>
+                        <Menu.Item key="25">Option 9</Menu.Item>
+                        <Menu.Item key="26">Option 10</Menu.Item>
+                        <Menu.Item key="27">Option 11</Menu.Item>
+                        <Menu.Item key="28">Option 12</Menu.Item>
+                        <Menu.Item key="29">Option 9</Menu.Item>
+                        <Menu.Item key="30">Option 10</Menu.Item>
+                        <Menu.Item key="31">Option 11</Menu.Item>
+                        <Menu.Item key="32">Option 12</Menu.Item>
                     </SubMenu>
                 </Menu>
             </div>
