@@ -61,12 +61,13 @@ export default class Index extends Component {
     }
     componentDidMount = () => {
         console.log(1);
-        $.post('http://localhost:8000/src/mock/user.json', function (data) {
-            console.log(data);
-            console.log(222);
-            this.setState({
-                data: data
-            })
+
+        $.ajax({
+            url: '/src/mock/user.json',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+            }
         })
     }
     render () {

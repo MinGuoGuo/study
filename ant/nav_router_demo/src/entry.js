@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM, { render } from 'react-dom';
-import { Router, Route, HashHistory, browserHistory, IndexRoute } from 'react-router';
+import { Router, Route, hashHistory, browserHistory, IndexRoute } from 'react-router';
 import Home from './components/Home/Home';
 import Index from './components/Index/Index';
 
@@ -17,8 +17,7 @@ import Index from './components/Index/Index';
 * 将组件直接挂载在路由上；
 * */
 render((
-    <Router history={browserHistory}>
-
+    <Router history={hashHistory}>
         <Route path="/" component={Home}>
             <Route path="/index" component={Index} />
         </Route>

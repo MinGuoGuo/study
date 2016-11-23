@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/ant/antd-demo/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/ant/nav_router_demo/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/ant/react-antd-admin/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/node/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/react-router/demo/01-setting-up/node_modules" />
