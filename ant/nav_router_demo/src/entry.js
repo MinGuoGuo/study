@@ -3,6 +3,7 @@ import ReactDOM, { render } from 'react-dom';
 import { Router, Route, hashHistory, browserHistory, IndexRoute } from 'react-router';
 import Home from './components/Home/Home';
 import Index from './components/Index/Index';
+import AddUser from './components/Index/AddUser/AddUser';
 
 
 /*
@@ -19,7 +20,8 @@ import Index from './components/Index/Index';
 render((
     <Router history={hashHistory}>
         <Route path="/" component={Home}>
-            <Route path="/index" component={Index} />
+            <Route path="/index" component={Index}></Route>
+            <Route path="/addUser" component={AddUser} />
         </Route>
     </Router>
 ), document.getElementById('root'));
