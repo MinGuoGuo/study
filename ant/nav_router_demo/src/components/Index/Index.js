@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Input, Form, Button, Table, Icon, notification } from 'antd';
 import { Link } from 'react-router';
 import 'whatwg-fetch';
-import $ from 'jquery';
 import './Index.css';
 
 //全局配置弹出框样式
@@ -36,7 +35,7 @@ export default class Index extends Component {
                 alert('请求失败！')
             }
         });*/
-        fetch('/src/mock/list.json')
+        fetch('/sr/mock/list.json')
             .then((response) => {
                 console.log(response);
                 return response.json()
@@ -83,7 +82,7 @@ export default class Index extends Component {
                 <span>
                     <a href="javascript:;">修改{record.id}</a>
                     <span className="ant-divider" />
-                    <a href="javascript:;" id={record.id} onClick={() => {this.delClick()}}>删除</a>
+                    <a href="javascript:;" onClick={() => {this.delClick(record.id)}}>删除</a>
                 </span>
             )
         }];
