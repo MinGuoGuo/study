@@ -35,7 +35,7 @@ export default class Index extends Component {
                 alert('请求失败！')
             }
         });*/
-        fetch('/sr/mock/list.json')
+        fetch('/src/mock/list.json')
             .then((response) => {
                 console.log(response);
                 return response.json()
@@ -80,7 +80,7 @@ export default class Index extends Component {
             key: 'action',
             render: (text, record) => (
                 <span>
-                    <a href="javascript:;">修改{record.id}</a>
+                    <a href="javascript:;"><Link to={{pathname: "modifyUser/" + record.id +"/" + record.name, query: {name: record.name, age: record.age}}}>修改</Link></a>
                     <span className="ant-divider" />
                     <a href="javascript:;" onClick={() => {this.delClick(record.id)}}>删除</a>
                 </span>

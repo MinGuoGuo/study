@@ -4,6 +4,8 @@ import { Router, Route, hashHistory, browserHistory, IndexRoute } from 'react-ro
 import Home from './components/Home/Home';
 import Index from './components/Index/Index';
 import AddUser from './components/Index/AddUser/AddUser';
+import ModifyUser from './components/Index/ModifyUser/ModifyUser';
+import Second from './components/Second/Second';
 
 
 /*
@@ -18,10 +20,12 @@ import AddUser from './components/Index/AddUser/AddUser';
 * 将组件直接挂载在路由上；
 * */
 render((
-    <Router history={hashHistory}>
+    <Router history={browserHistory}>
         <Route path="/" component={Home}>
-            <Route path="/index" component={Index}></Route>
+            <Route path="/index" component={Index} />
             <Route path="/addUser" component={AddUser} />
+            <Route path="/modifyUser/:id/:name" component={ModifyUser} />
+            <Route path="/second" component={Second} />
         </Route>
     </Router>
 ), document.getElementById('root'));
