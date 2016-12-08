@@ -1,8 +1,8 @@
-var express = require('express');
-var bodyParser = require("body-parser");
-var path = require('path');
-var db = require('./mysql');
-var app = express();
+let express = require('express');
+let bodyParser = require("body-parser");
+let path = require('path');
+let db = require('./mysql');
+let app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));// 获取post数据需要
 app.use('/html', express.static(path.join(__dirname, 'views')));

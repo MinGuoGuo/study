@@ -14,36 +14,20 @@ export default class Index extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            data: null,
-            id: ''
-        }
+            data: null
+        };
     }
-    componentDidMount = () => {
+    componentDidMount =  () => {
         console.log(1);
-       /* $.ajax({
-            url: '/src/mock/list.json',
-            contentType: 'application/json',
-            dataType: 'json',
-            success: (result) => {
-                //console.log(result.result);
-                this.setState({
-                    data: result.result
-                })
-
-            },
-            error: function () {
-                alert('请求失败！')
-            }
-        });*/
         fetch('/src/mock/list.json')
             .then((response) => {
                 console.log(response);
-                return response.json()
+                return response.json();
             }).then((result)=>  {
                 console.log(result);
                 this.setState({
                     data: result.result
-                })
+                });
         }).catch((error) => {
             notification.open({
                 message: '提示信息',
