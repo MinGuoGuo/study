@@ -4,7 +4,7 @@ let app = express();
 // 主页输出'Hello Express'
 app.get('/', (req, res) => {
     console.log('主页请求');
-    res.send('Hello Get!')
+    res.send('Hello Get!');
 });
 
 // post请求;

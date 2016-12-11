@@ -1,36 +1,46 @@
 var mysql = require('mysql');
 // 测试数据库连接
+// let arr = [];
+// let obj = {};
 // var connection = mysql.createConnection({
 //   host     : 'localhost',
-//   user     : 'root',
-//   password : 'root',
-//   database : 'data_test'
+//   user     : 'min',
+//   password : 'min',
+//   database : 'test'
 // });
 // connection.connect();
-// connection.query('select * from test_node', function(err, rows, fields) {
+// connection.query('select * from student', function(err, rows, fields) {
 // 	if (err) {
 // 		console.log(err);
+//         obj.err = err;
+//         obj.respCode = '01';
 // 		return;
 // 	};
 // 	if(rows) {
 // 		for (var i = 0; i < rows.length; i++) {
 // 			console.log(rows[i]);
+//             arr.push(rows[i]);
 // 		}
+//         obj.result = arr;
+//         obj.msg = '请求成功';
+//         obj.respCode = '00';
 // 	}
 // });
-// connection.end();return;
+// connection.end();
+// console.log('测试结束');
+// module.exports = obj;
 
 var pool = mysql.createPool({
     connectionLimit : 10,
     host : '127.0.0.1',
-    user : 'root',
-    password : 'root',
+    user : 'min',
+    password : 'min',
     port : 3306,
     database : 'test'
 });
 
-var db = new Object();
-db.query = function (sql, callback) {
+var dataBase = new Object();
+dataBase.query = function (sql, callback) {
     if(!sql) {
         callback();
         return;
@@ -45,4 +55,4 @@ db.query = function (sql, callback) {
     });
 };
 
-module.exports = db;
+module.exports = dataBase;

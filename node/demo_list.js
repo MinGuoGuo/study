@@ -7,8 +7,15 @@ let app = express();
 app.use(bodyParser.urlencoded({ extended: false }));// 获取post数据需要
 app.use('/html', express.static(path.join(__dirname, 'views')));
 
+// 请求接口
+app.get('/user_list', (req, res) => {
+    console.log(result);
+    res.end(JSON.stringify(result));
+})
+
 app.get('/list_user', function (req, res) {
     console.log(req.body);
+    console.log(db);
     db.query('select * from students', function(err, rows, fields){
         if (err) {
             console.log(err);
@@ -35,7 +42,7 @@ app.get('/add_user', function (req, res) {
 });
 
 // 修改接口
-app.get('/edit_user', function (req, res) {
+app.post('/edit_user', function (req, res) {
     console.log(req.body);
     db.query('select * from students', function(err, rows, fields){
         if (err) {
@@ -48,7 +55,7 @@ app.get('/edit_user', function (req, res) {
 });
 
 //
-app.get('/del_user', function (req, res) {
+app.post('/del_user', function (req, res) {
     console.log(req.body);
     db.query('select * from students', function(err, rows, fields){
         if (err) {
