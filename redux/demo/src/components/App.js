@@ -17,7 +17,7 @@ export default class App extends Component {
 }
 
 //限制组件安全,来验证传入数据的有效性；
-App.PropTypes = {
+App.propTypes = {
     sub: PropTypes.func.isRequired,
     add: PropTypes.func.isRequired,
     number: PropTypes.number.isRequired
