@@ -1,0 +1,46 @@
+/*公共样式*/
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none
+}
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    background: #f00;
+}
+
+/*头部*/
+header {
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+}
+.content div {
+    width: 100%;
+    height: 500px;
+    text-align: center;
+    line-height: 300px;
+    font-size: 20px
+}
+.first {
+    background: #ccc
+}
+.second {
+    background: #909;
+}
+.three {
+    background: yellowgreen;
+}
+.four {
+    background: blue
+}
+.five {
+    background: pink;
+}
+.six {
+    background: purple;
+}
+.seven {
+    background: #555;
+}
