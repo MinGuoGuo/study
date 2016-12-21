@@ -1,4 +1,5 @@
 import React from 'react';
+// const React = require('react');
 import ReactDOM from 'react-dom';
 // function tick() {
 //   const element = (
@@ -223,8 +224,9 @@ class Hello extends React.Component {
   }
 
   handleSubmit(event) {
-    // alert('A name was submitted: ' + this.input.value);
-    alert('A name was submitted: ' + this.refs.input.value);
+    alert('A name was submitted: ' + this.text.value);
+    // 以下是直接用refs取到ref的值
+    // alert('A name was submitted: ' + this.refs.input.value);
     event.preventDefault();
   }
 
@@ -233,8 +235,8 @@ class Hello extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
-          {/* <input type="text" ref={(input) => this.input = input} /> */}
-          <input type="text" ref="input" />
+          <input type="text" title="请输入姓名！" ref={(text) => this.text = text} />
+          {/* <input type="text" ref="input" /> */}
         </label>
         <input type="submit" value="Submit" />
       </form>

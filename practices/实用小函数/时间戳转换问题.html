@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		var oDate = new Date();
+		console.log(oDate);
+		console.log(oDate.getFullYear()); //获取年份
+		console.log(oDate.getMonth() + 1); //获取月份
+		console.log(oDate.getDate()); //获取日期
+		console.log(oDate.getDay());  //获取星期
+		console.log(oDate.getHours()); //获取小时；
+		console.log(oDate.getMinutes()); //获取分钟数;
+		console.log(oDate.getSeconds()); //获取秒数;
+		console.log(oDate.getTime()); //返回的是当前的毫秒数;
+		/*将上面的getTime得到的毫秒数除以1000就可以得到当前时间戳*/
+		
+		
+		//time是一个时间戳时间秒数
+		function formatDate(time){
+			var oDate = new Date(time);
+			return oDate.getFullYear() + '-' + (oDate.getMonth() < 10 ? '0'+ oDate.getMonth() : oDate.getMonth()) + '-' + (oDate.getDate() < 10 ? '0' + oDate.getDate() : oDate.getDate());
+		}
+		var date = new Date('2016-11-15');
+		console.log(date);
+	</script>
+</html>

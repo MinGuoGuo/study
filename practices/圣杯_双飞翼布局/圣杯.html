@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>圣杯布局</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			#header {
+				height: 50px;
+				background: #ccc;
+				text-align: center;
+				line-height: 50px;
+			}
+			#bd {
+				padding: 0 200px 0 180px;
+				height: 100px;
+			}
+			#middle {
+				float: left;
+				width: 100%;/*左栏上去到第一行*/
+				height: 100px;
+				background: blue;
+				text-align: center;
+				line-height: 100px;
+			}
+			#left {
+				float: left;
+				width: 180px;
+				height: 100px;
+				margin-left: -100%;
+				background: #0c9;
+				position: relative;
+				left: -180px;
+				text-align: center;
+				line-height: 100px;
+			}
+			#right {
+				float: left;
+				width: 200px;
+				height: 100px;
+				margin-left: -200px;
+				background: #00CC99;
+				position: relative;
+				right: -200px;
+				text-align: center;
+				line-height: 100px;
+			}
+			#footer {
+				height:50px;
+			    background: #ccc;
+			    text-align: center;
+			    line-height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">圣杯布局</div>
+		<div id="bd">
+			<div id="middle">middle</div>
+			<div id="left">left</div>
+			<div id="right">right</div>
+		</div>
+		<div id="footer">footer</div>
+	</body>
+</html>
