@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			button {
+				cursor: pointer;
+			}
+			.active {
+				background: #00CC99;
+			}
+			#content {
+				width: 400px;
+				margin: 20px auto;
+			}
+			#wrap {
+				position: relative;
+				margin-top: 20px;
+			}
+			#wrap div {
+				width: 230px;
+				height: 200px;
+				font-size: 20px;
+				line-height: 200px;
+				text-align: center;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			#wrap div:nth-child(1) {
+				z-index: 1;
+				background: #ccc;
+			}
+			#wrap div:nth-child(2) {
+				background: #CC0099;
+			}
+			#wrap div:nth-child(3) {
+				background: #00CC99;
+			}
+			#wrap div:nth-child(4) {
+				background: #9ACD32;
+			}
+		</style>
+		<script>
+			window.onload = function () {
+				var aBtn = document.getElementsByTagName('button');
+				var aDiv = document.getElementById('wrap').getElementsByTagName('div');
+				console.log(aDiv)
+				var legnth = aBtn.length;
+				for (var i = 0; i < legnth; i++) {
+					aBtn[i].index = i; // 添加一个自定义属性；
+					aBtn[i].onclick = function () {
+						for (var n = 0; n < legnth; n++) {
+							aBtn[n].className = '';
+							aDiv[n].style.display = 'none'
+						}
+						this.className = 'active';
+						console.log(this.index)
+						aDiv[this.index].style.display = 'block';
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="content">
+			<div id="btn">
+				<button class="active">选项卡一</button>
+				<button>选项卡二</button>
+				<button>选项卡三</button>
+				<button>选项卡四</button>
+			</div>
+			<div id="wrap">
+				<div>选项卡一</div>
+				<div>选项卡二</div>
+				<div>选项卡三</div>
+				<div>选项卡四</div>
+			</div>
+		</div>
+
+	</body>
+</html>

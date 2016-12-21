@@ -10,53 +10,23 @@ var scrollFunc = function (e) {
         if (e.wheelDelta > 0) { //当滑轮向上滚动时
             console.log("滑轮向上滚动");
             thisDiv = thisDiv.prev();
-            if(thisDiv.length != 0) {
-                $('body').stop(true, false).animate({
-                    scrollTop: thisDiv.offset().top - thisDivH
-                }, 1000);
-                return false;
-            }else{
-                $('body').stop(false, true).animate({
-                    scrollTop: 0
-                }, 1000);
-                return false;
-            }
+        	winAnimate(thisDiv, thisDivH);
         }
         if (e.wheelDelta < 0) { //当滑轮向下滚动时
             console.log("滑轮向下滚动");
             thisDiv = thisDiv.next();
-            if(thisDiv.length != 0) {
-                $('body').stop(true, false).animate({
-                    scrollTop: thisDiv.offset().top - thisDivH
-                }, 1000);
-                return false;
-            }
+            winAnimate(thisDiv, thisDivH);
         }
     } else if (e.detail) {  //Firefox滑轮事件
         if (e.detail> 0) { //当滑轮向上滚动时
             console.log("滑轮向上滚动");
             thisDiv = thisDiv.prev();
-            if(thisDiv.length != 0) {
-                $('body').stop(true, false).animate({
-                    scrollTop: thisDiv.offset().top - thisDivH
-                }, 1000);
-                return false;
-            }else{
-                $('body').stop(true, false).animate({
-                    scrollTop: 0
-                }, 1000);
-                return false;
-            }
+            winAnimate(thisDiv, thisDivH);
         }
         if (e.detail< 0) { //当滑轮向下滚动时
             console.log("滑轮向下滚动");
             thisDiv = thisDiv.next();
-            if(thisDiv.length != 0) {
-                $('body').stop(true, false).animate({
-                    scrollTop: thisDiv.offset().top - thisDivH
-                }, 1000);
-                return false;
-            }
+            winAnimate(thisDiv, thisDivH);
         }
     }
     // ScrollText(direct);
@@ -67,3 +37,22 @@ if (document.addEventListener) {
 }
 //滚动滑轮触发scrollFunc方法
 window.onmousewheel = document.onmousewheel = scrollFunc;
+
+
+function winAnimate (obj, obj_height) {
+	if(!$('body').is(':animated')) {
+		if(obj.length != 0) {
+	        $('body').stop(true, false).animate({
+	            scrollTop: obj.offset().top - obj_height
+	        }, 1000);
+	        return false;
+	    }
+		
+		if($(window).scrollTop() <= 80) {
+			$('body').stop(true, false).animate({
+	            scrollTop: 0
+	        }, 1000);
+	        return false;
+		}
+	}
+}
