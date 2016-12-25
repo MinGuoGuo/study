@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="age" id="age"/><br />
+		<input type="text" name="name"id="name"/><br />
+		<input type="text" name="height" id="height"/><br />
+		<input type="text" name="qq"/><br id="qq"/>
+		<select name="" id="sex">
+			<option value="0"></option>
+			<option value="男">男</option>
+			<option value="女">女</option>
+		</select>
+		<script src="../base/jquery-3.0.0.min.js"></script>
+		<script>
+			var obj = $('#id');
+			console.log(obj);
+			$.ajax({
+				type:"get",
+				url:"list.json",
+				success: function (data) {
+					console.log(data);
+					var result = data.result;
+					$.each(result, function(i, res) {
+						//console.log(index, o);
+						/*for (var i in result) {
+							console.log(result[i]);
+							$('#'+i).val(result[i]);
+						}*/
+						console.log()
+						$('#'+i).val(result[i]);
+					});
+				}
+			});
+		</script>
+	</body>
+</html>
