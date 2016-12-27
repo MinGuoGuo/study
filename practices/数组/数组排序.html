@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr = [78, 5, 234, 67, 23, 11, 89];
+			var arrStr = ['right', 'left', 'zoom', 'arguments'];
+			// sort默认是对字符换进行排序的‘
+			console.log(arrStr.sort());		
+			// 对数字数组排序要用sort的比较函数
+			console.log(arr.sort(function (num1, num2) {
+				/*if (num1 < num2) {
+					return -1; 
+				}
+				else if (num1 > num2) {
+					return 1;
+				} else {
+					return 0
+				}*/
+				return num1 - num2;
+			}));
+		</script>
+	</body>
+</html>
