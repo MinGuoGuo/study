@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" class="myF">
+			<div>
+				<input type="text" name="name"/>
+			</div>
+			<div>
+				<input type="text" name="age" />
+			</div>
+			<div>
+				<select name="sex" id="">
+					<option value="男">男</option>
+					<option value="女">女</option>
+				</select>
+			</div>
+		</form>
+		<button id="btn">保存</button>
+		<script src="base/jquery-3.0.0.min.js"></script>
+		<script src="base/jquery.serializejson.js"></script>
+		<script>
+			$('#btn').on('click', function () {
+				console.log($('.myF').serializeJSON());
+				console.log($.extend($('.myF').serializeJSON(), {id: 5}));
+			})
+		</script>
+	</body>
+</html>
