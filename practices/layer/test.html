@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*.layui-layer-tips .layui-layer-content, {
+				background-color: #00CC99!important;
+			}
+			.layui-layer-tips i.layui-layer-TipsB, .layui-layer-tips i.layui-layer-TipsT {
+				border-color: #00CC99!important;
+			}*/
+		</style>
+	</head>
+	<body>
+		<input type="text" id="input" />
+		<script src="../base/jquery-3.0.0.min.js"></script>
+		<script src="../base/layer-v3.0.1/layer/layer.js"></script>
+		<script>
+			// layer.tips('nimei', '#input', {tips: 3, time: 0})
+			$('#input').on('keypress', function () {
+				console.log(111);
+				if (parseFloat($(this).val()) >= 100) {
+					var index = layer.tips('下', '#input', {
+						tips: 3,
+						time: 0,
+						skin: 1
+					});
+				} else {
+					layer.closeAll(index);
+				}
+				console.log($(this).val());
+			});
+		</script>
+	</body>
+</html>

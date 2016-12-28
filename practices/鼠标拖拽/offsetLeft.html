@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			#div1 {
+				width: 200px;
+				height: 200px;
+				background: #990099;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.div2 {
+				width: 200px;
+				height: 200px;
+				margin-left: 300px;
+				background: #000000;
+				position: relative;
+			}
+			#div3 {
+				width: 100px;
+				height: 100px;
+				background: #f00;
+				margin-left: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div class="div2">
+			<div id="div3"></div>
+		</div>
+		<button id="btn1"></button>
+		<script>
+			var oDiv1 = document.getElementById('div1');
+			var oDiv2 = document.getElementById('div3');
+			oDiv1.onclick = function () {
+				alert(this.offsetLeft)
+			}
+			oDiv2.onclick = function (e) {
+				console.log('offsetLeft', this.offsetLeft);
+				console.log('clientX', e.clientX); //鼠标离窗口的横向距离；
+				console.log('pageX', e.pageX);
+			}
+			/*setInterval(function () {
+				oDiv.style.left = oDiv.offsetLeft + 10 + 'px';
+			}, 30);*/
+		</script>
+	</body>
+</html>

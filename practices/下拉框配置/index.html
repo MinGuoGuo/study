@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#opt {
+				width: 200px;
+				height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<select id="opt">
+			
+		</select>
+		<script>
+			var json = {
+				"1": "男性",
+				"2": "女"
+			}
+			var oSelect = document.getElementById('opt');
+			var opt = '<option value=""></option>';
+			for (var i in json) {
+				console.log(i);
+				opt += '<option value="'+i+'">'+json[i]+'</option>';
+			}
+			oSelect.innerHTML = opt;
+			console.log(opt);
+			oSelect.onchange = function () {
+				console.log(this.value);
+			}
+		</script>
+	</body>
+</html>
