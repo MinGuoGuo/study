@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			#wrap {
+				width: 712px;
+				margin: 100px auto;
+				position: relative;
+				overflow: hidden;
+				height: 108px;
+				cursor: pointer;
+			}
+			ul {
+				position: absolute;
+				left: 0;
+				right: 0;
+			}
+			ul li {
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn1">left</buton>
+		<button id="btn2">right</button>
+		<div id="wrap">
+			<ul>
+				<li><img src="img/1.jpg" /></li>
+				<li><img src="img/2.jpg" /></li>
+				<li><img src="img/3.jpg" /></li>
+				<li><img src="img/4.jpg" /></li>
+			</ul>
+		</div>
+		<script>
+			var oWrap = document.getElementById('wrap');
+			var oUl = oWrap.getElementsByTagName('ul')[0];
+			var aImg = oWrap.getElementsByTagName('li')[0];
+			var oBnt1 = document.getElementById('btn1');
+			var oBnt2 = document.getElementById('btn2');
+			var speed = -2;
+			oUl.innerHTML = oUl.innerHTML + oUl.innerHTML;
+			oUl.style.width = 2*oUl.offsetWidth + 'px';
+			oBnt1.onclick = function () {
+				speed = -2;
+			}
+			oBnt2.onclick = function () {
+				speed = 2;
+			}
+			function move() {
+				oUl.style.left = oUl.offsetLeft + speed + 'px';
+				if (parseInt(oUl.offsetLeft) <= parseInt(-1/2*oUl.offsetWidth)) {
+					oUl.style.left = 0;
+				}
+				else if (parseInt(oUl.offsetLeft) ==0) {
+					oUl.style.left = -1/2*oUl.offsetWidth + 'px';
+				}
+			}
+			var timer = setInterval(move, 30);
+			function times(args) {
+				if(args) {
+					clearInterval(timer);
+					return false;
+				}
+				timer = setInterval(move, 30);
+			}
+			oWrap.onmouseover = function () {
+				times(true);
+			}
+			oWrap.onmouseout = function () {
+				times(false);
+			}
+		</script>
+	</body>
+</html>

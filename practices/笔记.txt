@@ -91,6 +91,6 @@ AJAX请求结果，每次操作本地变量，不用请求，减少请求次数
 	
 14..数组的length属性可读也可写；arr.legnht = number;  强制改写了length的长度，数组也会因此而改变；应用实例是清空数组，直接让数组的length=0；
 
-15..offsetLeft和offRight是相对父级的边距
+15..offsetLeft和offRight是相对父级的边距；
 
 
