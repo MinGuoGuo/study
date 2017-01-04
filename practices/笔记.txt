@@ -93,4 +93,11 @@ AJAX请求结果，每次操作本地变量，不用请求，减少请求次数
 
 15..offsetLeft和offRight是相对父级的边距；
 
-
+16..阻止冒泡；
+    function myfn(e){
+		window.event? window.event.cancelBubble = true : e.stopPropagation();
+	}
+	阻止默认行为
+	function myfn(e){
+		window.event? window.event.returnValue = false : e.preventDefault();
+	}
