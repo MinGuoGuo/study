@@ -19,6 +19,9 @@
 				</select>
 			</div>
 		</form>
+		<input type="text" id="input" value="你妹"/>
+		<input type="text" value="sb" class="input"/>
+		<input type="text" value="haha" class="input"/>
 		<button id="btn">保存</button>
 		<script src="base/jquery-3.0.0.min.js"></script>
 		<script src="base/jquery.serializejson.js"></script>
@@ -26,7 +29,14 @@
 			$('#btn').on('click', function () {
 				console.log($('.myF').serializeJSON());
 				console.log($.extend($('.myF').serializeJSON(), {id: 5}));
-			})
+			});
+			var oInput = document.getElementById('input');
+			var $input = $('#input');
+			console.log(oInput.value);
+			console.log($(oInput).val());
+			console.log('$input', $input[0].value);
+			var $$input = $('.input');
+			console.log('$$input', $$input[1].value);
 		</script>
 	</body>
 </html>

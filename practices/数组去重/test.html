@@ -28,7 +28,29 @@
 				}
 				return newArr;
 			}*/
+			// 这是利用indexOf返回的是当前元素的索引值来做的；
+			/*Array.prototype.getUnqiue = function () {
+				var newArr = [this[0]];
+				for (var i = 0; i < this.length; i++) {
+					if (this.indexOf(this[i]) == i) {
+						newArr.push(this[i]);
+					}
+				}
+				return newArr;
+			}*/
+			// 先把数组从打到小排序；然后在比较相邻两个元素；
+			/*Array.prototype.getUnqiue = function () {
+				this.sort();
+				var newArr = [this[0]];
+				for (var i = 1; i < this.length; i++) {
+					if (this[i] != newArr[newArr.length - 1]) {
+						newArr.push(this[i])
+					}
+				}
+				return newArr;
+			}*/
 			
+			// 结语第二种方法是最好的，效率最高的，第一第三四种方法都用到了用到了循环降低了效率；
 		</script>
 	</body>
 </html>
