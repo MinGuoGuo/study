@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="cnm" style="width:20px;height:20px;background:#FD482C;"></div>
+		<script>
+			var objDiv = document.getElementById('cnm');
+			/*objDiv.onclick = function (e) {
+				console.log(e);
+				console.log(window.event);
+				var e = e || window.event;
+				console.log(this);
+			}*/
+			/*objDiv.attachEvent('onclick', function () {
+				alert(this);
+			})*/
+			/*objDiv.addEventListener('click', function () {
+				alert(this);
+			})*/
+			function addLister(obj, state, handle) {
+				if (window.event) {
+					obj.attachEvent('on'+state, handle)
+				} else {
+					obj.addEventListener(state, handle, false);
+				}
+			}
+		</script>
+	</body>
+</html>

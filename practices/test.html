@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="div2">
+			<button>点击</button>
+		</div>
+		<script src="base/jquery-3.0.0.min.js"></script>
+		<script>
+			$('.div2').on('click', function (e) {
+				console.log(this);
+				console.log(e.currentTarget);
+			})
+		</script>
+	</body>
+</html>
