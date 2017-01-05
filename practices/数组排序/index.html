@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*sort数字进行排序的时候，一定要传一个回调函数*/
+			/*var arr = [3, 2, 6, 7, 9, 5];
+			arr.sort();
+			console.log(arr.sort(function (a, b) {
+				return b - a;
+			}));*/
+			// 冒泡排序
+			var arr = [3, 2, 6, 7, 9, 5];
+
+			function bubbleSort(arr) {
+				var len = arr.length, tmp;
+				for(var i = 0; i < len - 1; i++) {
+					for(var j = 0; j < len - 1 - i; j++) {
+						if(arr[j] > arr[j + 1]) {
+							tmp = arr[j];
+							arr[j] = arr[j + 1];
+							arr[j + 1] = tmp;
+						}
+					}
+				}
+				return arr;
+			}
+			console.log(bubbleSort(arr));
+		</script>
+	</body>
+
+</html>

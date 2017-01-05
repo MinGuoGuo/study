@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.error {
+				border: 1px #f00 solid;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="" class="myF">
+			<div>
+				<input type="text" name="name" required="required"/>
+			</div>
+			<div>
+				<input type="text" name="age" required="required"/>
+			</div>
+			<div style="display: none;">
+				<select name="sex" id="" required="required">
+					<option value="男">男</option>
+					<option value="女">女</option>
+				</select>
+			</div>
+		</form>
+		
+		<button id="btn">保存</button>
+		<script src="base/jquery-3.0.0.min.js"></script>
+		<script src="base/jquery.serializejson.js"></script>
+		<script>
+			$('#btn').on('click', function () {
+				console.log($('.myF').serializeJSON());
+				console.log($.extend($('.myF').serializeJSON(), {id: 5}));
+				/*if (validateForm()) {
+					//validateForm();
+					console.log(2);
+					return;
+				}*/
+				console.log(validateForm());
+				console.log(1);
+			});
+			function validate() {
+				$('[required]:visible').on('blur', function (e) {
+					if (!$(e.target).val()) {
+						$(e.target).addClass('error')
+					} else {
+						if ($(this).hasClass('error')) {
+							$(this).removeClass('error');
+						}
+					}
+				})
+			}
+			validate();
+			function validateForm() {
+				$('[required]:visible').each(function (index) {
+					if (!$(this).val()) {
+						$(this).addClass('error');
+						console.log(111)
+					} else {
+						return 0;
+					}
+				})
+			}
+		</script>
+	</body>
+</html>

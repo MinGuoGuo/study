@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			function f() {
+				var arr = [];
+				for(var i = 0; i < 10; i++) {
+					arr[i] = function() {
+						return i;
+					};
+				}
+				return arr;
+			}
+			var fn = f();
+			for(var i = 0; i < fn.length; i++) {
+				console.log('函数fn[' + i + ']()返回值:' + fn[i]());
+			}
+		</script>
+	</body>
+
+</html>

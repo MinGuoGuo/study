@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 200px;
+				height: 200px;
+				background: #00FF00;
+			}
+			#div2 {
+				width: 200px;
+				height: 200px;
+				background: #0000FF;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">哈哈</div>
+		<div id="div2"></div>
+		<script>
+			var oDiv = document.getElementById('div1');
+			oDiv.onclick = function () {
+				alert(this);
+			}
+			var oDiv2 = document.getElementById('div2');
+			oDiv2.attachEvent('onclick', function () {
+				alert(this);
+			})
+		</script>
+	</body>
+</html>
