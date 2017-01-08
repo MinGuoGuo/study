@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.tbody tr:nth-of-type(odd) {
+				background: #ccc;
+			}
+			.tbody tr:hover {
+				background: #00FF00;
+			}
+			/*.tbody li:nth-of-type(even) {
+				margin-left: 10px;
+			}*/
+		</style>
+		<script>
+			window.onload = function () {
+				var oTable = document.getElementById('tab');
+				var rows = oTable.tBodies[0].rows; //获取行；
+				var cell = rows[0].cells;  //获取单元格
+				console.log('rows', rows.length);
+				console.log('cells', cell.length);
+			}
+		</script>
+	</head>
+
+	<body>
+		<table id="tab" border="1" cellspacing="" cellpadding="" width="500">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>name</th>
+					<th>age</th>
+				</tr>
+			</thead>
+			<tbody class="tbody">
+				<tr>
+					<td>1</td>
+					<td>lbj</td>
+					<td>31</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>kb</td>
+					<td>37</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>kd</td>
+					<td>28</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+
+</html>
