@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function () {
+				var oBtn = document.getElementById('btn');
+				// 当不传参的时chorme都能读出对象；FF不能； IE也是不能的；
+				/*oBtn.onclick = function () {
+					console.log('window.event', window.event);
+					console.log('event', event);
+				}*/
+				
+				// 传参使用。chorme都是可以的,IE指的是6-8；
+				oBtn.onclick = function (event) {
+					console.log('window.event', window.event);  //FF:undefined, IE:object
+					console.log('event', event); //FF:object, IE:underfined
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">Test</button>
+	</body>
+</html>
