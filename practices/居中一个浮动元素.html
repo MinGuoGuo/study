@@ -1,29 +1,53 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
+			/*#div3:after {
+				clear: both;
+				content: '';
+				display: block;
+				width: 0;
+				height: 0;
+				visibility: hidden;
+			}*/
+			#div3 {
+				overflow: auto;
+			}
 			#div1 {
 				width: 200px;
 				height: 200px;
 				background: #0f0;
+				float: right;
 			}
+			
 			#div2 {
 				width: 100px;
 				height: 100px;
 				background: #000;
-				float: right;
-				position: relative;
-				display: table;
+				/*clear: both;*/
+			}
+			.pp:before {
+				content: '*';
+				color: #f00;
+				margin-right: 5px;
 			}
 		</style>
 	</head>
+
 	<body>
-		<div id="div1">
-			<div id="div2">
-				
+		<div id="div3">
+			<div id="div1">
+
 			</div>
+			
 		</div>
+		<div id="div2">
+
+			</div>
+			<p class="pp">好好学习，天天向上！</p>
 	</body>
+
 </html>

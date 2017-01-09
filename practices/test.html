@@ -5,15 +5,15 @@
 		<title></title>
 	</head>
 	<body>
-		<div class="div2">
-			<button>点击</button>
-		</div>
+		<button id="btn">test</button>
 		<script src="base/jquery-3.0.0.min.js"></script>
 		<script>
-			$('.div2').on('click', function (e) {
-				console.log(this);
-				console.log(e.currentTarget);
-			})
+			var oBtn = document.getElementById('btn')
+			oBtn.onclick = function (event) {
+				console.log('event', event);
+				//console.log('event', event);
+				console.log('window.event',window.event);
+			}
 		</script>
 	</body>
 </html>

@@ -5,7 +5,7 @@
           4、自增（i++)；
     以上四要素缺一不可。
     
-1..记住事件监听addEventLister的兼容问题；
+1..记住事件监听addEventLister和addAttchment的兼容问题；
 
 2..IE和DOM事件流的区别;
 

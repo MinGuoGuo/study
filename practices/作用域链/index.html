@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			var name = "global";
+
+			function t() {
+				console.log(name);
+				var name = "local"
+				console.log(name);
+			}
+			t();
+		</script>
+	</body>
+
+</html>
