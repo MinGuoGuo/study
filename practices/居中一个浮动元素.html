@@ -35,9 +35,33 @@
 				margin-right: 5px;
 			}
 		</style>
+		<script>
+			window.onload = function () {
+				var oBtn = document.getElementById('btn');
+				var oUl = document.getElementById('ul1');
+				
+				// var oAl = '<li><a href="javascript:;" />删除</a></li>';
+				// oUl.innerHTML = oAl;
+				oBtn.onclick =  function () {
+					var oLi = document.createElement('li');
+					oLi.innerHTML = '<a href="javascript:;" />删除</a>';
+					oUl.appendChild(oLi);
+					var aA = document.getElementsByTagName('a');
+					for (var i = 0; i < aA.length; i++) {
+					aA[i].onclick = function () {
+						console.log(this);
+						oUl.removeChild(this.parentNode);
+					}
+				}
+				}
+				;
+				
+			}
+		</script>
 	</head>
 
 	<body>
+<<<<<<< HEAD
 		<div id="div3">
 			<div id="div1">
 
@@ -48,6 +72,12 @@
 
 			</div>
 			<p class="pp">好好学习，天天向上！</p>
+=======
+		<button id="btn">添加</button>
+		<ul id="ul1"> 
+			
+		</ul>
+>>>>>>> 7374abb300dace632631e99371df4ca843a0fc0c
 	</body>
 
 </html>

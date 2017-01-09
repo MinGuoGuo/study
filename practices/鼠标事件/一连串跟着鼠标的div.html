@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 20px;
+				height: 20px;
+				background: #0f0;
+				position: absolute;
+			}
+		</style>
+		<script>
+			function getPos (e) {
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+				return {x: e.clientX + scrollLeft, y: e.clientY + scrollTop};
+			}
+			window.onload = function () {
+				document.onmousemove = function (ev) {
+					var e = ev || window.event;
+					var aDiv = document.getElementsByTagName('div');
+					for (var i = aDiv.length - 1; i > 0; i--) {
+						aDiv[i].style.left = aDiv[i-1].offsetLeft + 'px';
+						aDiv[i].style.top = aDiv[i-1].offsetTop + 'px';
+					}
+					aDiv[0].style.left  = getPos(e).x + 'px';
+					aDiv[0].style.top = getPos(e).y + 'px';
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

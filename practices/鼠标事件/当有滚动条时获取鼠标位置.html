@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 100px;
+				height: 100px;
+				background: #f00;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body style="width: 2000px; height: 2000px ;">
+		<div id="div1">
+			
+		</div>
+		<script>
+			document.onclick = function (ev) {
+				var e = ev || window.event;
+				//  解决兼容问题；
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+				console.log('y', e.clientY + scrollTop, 'x', e.clientX + scrollLeft);
+			}
+			function getPos (e) {
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+				return {x: e.clientX + scrollLeft, y: e.clientY + scrollTop};
+			}
+			document.onmousemove = function (ev) {
+				// 拖动div
+				var e = ev || window.event;
+					//  解决兼容问题；
+				/*var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;*/
+				var pos = getPos(e);
+				var oDiv = document.getElementById('div1');
+				// console.log('y', e.clientY + scrollTop, 'x', e.clientX + scrollLeft);
+				/*oDiv.style.top = e.clientY + scrollTop + 'px';
+				oDiv.style.left = e.clientX + scrollLeft + 'px';*/
+				oDiv.style.left = pos.x + 'px';
+				oDiv.style.top = pos.y + 'px';
+			}
+			
+		</script>
+	</body>
+</html>
