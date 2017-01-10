@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标拖动div</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: #0f0;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            oDiv.onmousedown = function (event) {
+                var e = window.event || event;
+                var disX = e.clientX - this.offsetLeft;
+                var disY = e.clientY - this.offsetTop;
+                console.log(disX, disY);
+                // 开始拖动；
+                document.onmousemove = function (event) {
+                    var e = window.event || event;
+                    var l = e.clientX - disX;
+                    var t = e.clientY - disY;
+                    console.log(oDiv.offsetLeft, oDiv.offsetTop);
+                    if (oDiv.offsetLeft <= 0 ) {
+                        l = 0;
+                    }
+                    else if (oDiv.offsetTop <= 0) {
+                        t = 0;
+                    }
+                    oDiv.style.left = l + 'px';
+                    oDiv.style.top = t + 'px';
+                };
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                };
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>
