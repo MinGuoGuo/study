@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		test:<input type="text"  id="input"/>
+		<script>
+			var oInput = document.getElementById('input')
+			oInput.onkeydown = function () {
+				console.log('onkeydown');
+			}
+			oInput.onkeyup = function () {
+				console.log('onkeyup');
+			}
+			oInput.onkeypress = function () {
+				console.log('onkeypress');
+			}
+		</script>
+	</body>
+</html>

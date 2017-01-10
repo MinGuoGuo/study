@@ -29,11 +29,17 @@
                     var l = e.clientX - disX;
                     var t = e.clientY - disY;
                     console.log(oDiv.offsetLeft, oDiv.offsetTop);
-                    if (oDiv.offsetLeft <= 0 ) {
+                    if (l < 0 ) {
                         l = 0;
                     }
-                    else if (oDiv.offsetTop <= 0) {
+                    else if (l > document.documentElement.clientWidth-oDiv.offsetWidth) {
+                    	l = document.documentElement.clientWidth-oDiv.offsetWidth
+                    }
+                    if (t < 0) {
                         t = 0;
+                    }
+                    else if (t > document.documentElement.clientHeight-oDiv.offsetHeight) {
+                    	t = document.documentElement.clientHeight-oDiv.offsetHeight
                     }
                     oDiv.style.left = l + 'px';
                     oDiv.style.top = t + 'px';
