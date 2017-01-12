@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取行内样式</title>
+    <style>
+        #div1 {
+            height: 200px;
+            background: #0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" style="width: 200px"></div>
+    <script>
+        function getStyle(obj, attr) {
+            if (obj.currentStyle) {  // 兼容ie的写法
+                return obj.currentStyle[attr];
+            } else {
+                return getStyle(obj, null)[attr]; // FF、chrome
+            }
+        }
+        var oDiv = document.getElementById('div1');
+        alert(getStyle(oDiv, 'width'));
+    </script>
+</body>
+</html>

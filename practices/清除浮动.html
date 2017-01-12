@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*综合来看还是第一种方法最给力了*/
+
+        /*第一种方法给父元素加下面这个鬼东西*/
+       /* .div1 {
+            overflow: auto;
+        }*/
+
+        /*第三种方法给父元素加上伪类元素*/
+        .div1:after {
+            clear: both;
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            visibility: hidden;
+        }
+        .div2 {
+            width: 200px;
+            height: 200px;
+            background: #0f0;
+            float: right;
+
+        }
+        .div3 {
+            width: 200px;
+            height: 200px;
+            background: #f00;
+            /*给子元素加上下面这个鬼东西*/
+           /* clear: both;*/
+        }
+        p:before {
+            content: '*';
+            color: #f00;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <div class="div2"></div>
+    </div>
+    <div class="div3"></div>
+    <p>好好学习，天天向上！</p>
+</body>
+</html>

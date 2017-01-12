@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定</title>
+    <script>
+        function myListener(obj, type, fn) {
+            if (obj.attachEvent) {  //兼容IE
+                return obj.attachEvent('on'+type, fn);
+            } else {
+                return obj.addEventListener(type, fn, false);  // 兼容FF,chrome
+            }
+        }
+        window.onload = function () {
+            var oBtn = document.getElementById('btn');
+            myListener(oBtn, 'click', function () {alert(1)})
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">Test</button>
+</body>
+</html>
