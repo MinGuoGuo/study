@@ -47,4 +47,31 @@ module.exports = {
             })
         });
     },
+    del: (req, res, next) => {
+        let sqldel = sql.del+req.query.id
+        pool.getConnection((err, connect) => {
+            // 获取前台页面传过来的参数
+            let param = req.query || req.params;
+
+            // 建立连接，查询表中数据；
+            connect.query(sqldel, [], (err, result) =>{
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                let obj = {};
+                if (result) {
+                    obj = {
+                        result: result,
+                        code: 01,
+                        msg: '请求成功！'
+                    }
+                }
+                jsonWrite(res, obj);
+
+                // 释放连接
+                connect.release();
+            })
+        });
+    },
 }

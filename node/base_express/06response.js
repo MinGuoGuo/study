@@ -7,5 +7,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(9001, () => {
-    console.log('监听成功9001');
-})
+    console.log('监听成功9001')
+});
