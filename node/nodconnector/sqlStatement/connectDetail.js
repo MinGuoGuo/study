@@ -25,7 +25,6 @@ module.exports = {
         pool.getConnection((err, connect) => {
             // 获取前台页面传过来的参数
             let param = req.query || req.params;
-
             // 建立连接，查询表中数据；
             connect.query(sql.list, [], (err, result) =>{
                 if (err) {
