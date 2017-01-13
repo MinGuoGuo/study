@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<iframe src="content.html" frameborder="1" width="800" height="400"></iframe>
+<script>
+    window.addEventListener('message',function(e){
+        var a = e.data;
+        console.log(a);
+        window.parent.postMessage(JSON.stringify({type: 'success', msg: '提交成功'}), 'http://erp8030.baidu.com:8081');
+    },false);
+</script>
+</body>
+</html>

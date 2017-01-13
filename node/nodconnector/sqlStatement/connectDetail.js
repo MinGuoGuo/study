@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const sql = require('./student.js');
 const pools = require('../pool/pool.js');
-console.log(sql);
+console.log('sql', sql.list);
 
 // 创建连接池;
 let pool = mysql.createPool(pools.mysql);

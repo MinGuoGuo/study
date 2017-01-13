@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">点击传值啊</button>
+    <script>
+        var oBtn = document.getElementById('btn');
+        oBtn.onclick = function () {
+            window.parent.postMessage('我是传过来的信息', '*');
+
+        }
+    </script>
+</body>
+</html>
