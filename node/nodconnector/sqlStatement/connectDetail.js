@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const sql = require('./student.js');
 const pools = require('../pool/pool.js');
-console.log('sql', sql.list);
+// console.log('sql', sql.list);
 
 // 创建连接池;
 let pool = mysql.createPool(pools.mysql);
@@ -14,7 +14,7 @@ let jsonWrite = (response, result) => {
             msg: '请求失败'
         });
     } else {
-        console.log(result);
+        //console.log(result);
         response.json(result);
     }
 };
@@ -23,10 +23,23 @@ let jsonWrite = (response, result) => {
 module.exports = {
     list: (req, res, next) => {
         pool.getConnection((err, connect) => {
-            // 获取前台页面传过来的参数
+            // 获取前端页面传过来的参数
             let param = req.query || req.params;
-            // 建立连接，查询表中数据；
-            connect.query(sql.list, [], (err, result) =>{
+            console.log(param.name);
+
+            let list = sql.list;
+            if (param.name != '' && param.age == '') {
+                list = list + " where name like '%"+param.name+"%'";
+            }
+            if (param.name == '' && param.age != '') {
+                list = list + " where age like '%"+param.age+"%'";
+            }
+            if (param.name != '' && param.age != '') {
+                list = list + " where name like '%"+param.name+"%' and age like '%"+param.age+"%'";
+            }
+            // 开始连接数据库；
+            console.log('list', list);
+            connect.query(list, [], (err, result) =>{
                 if (err) {
                     console.log(err);
                     return;

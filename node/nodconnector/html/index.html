@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试接口文件</title>
+    <style>table, th, tr, td {
+            border: 1px #ccc solid;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-bottom: 20px">
+        <input id="name" type="text" placeholder="name">
+        <input id="age" type="text" placeholder="age">
+        <button id="btn">search</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>号码</th>
+            </tr>
+        </thead>
+        <tbody class="tbody">
+
+        </tbody>
+    </table>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        function getData() {
+            $.ajax({
+                type: 'get',
+                url: 'http://localhost:9001/list',
+                contentType: 'text/plain',
+                data: {
+                    name: $('#name').val(),
+                    age: $('#age').val()
+                },
+                success: function (data) {
+                    console.log(data);
+                    var str = '';
+                    var result = data.result;
+                    for (var i = 0; i < data.result.length; i++) {
+                        str += '<tr>'
+                            +  '<td>'+ (i+1) +'</td>'
+                            +  '<td>'+ result[i].name +'</td>'
+                            +  '<td>'+ result[i].age +'</td>'
+                            +  '<td>'+ result[i].sex +'</td>'
+                            +  '<td>'+ result[i].tel +'</td>'
+                            +  '</tr>'
+                    }
+                    $('.tbody').html(str);
+                }
+            });
+        }
+        getData();
+        $('#btn').on('click', function () {
+            getData();
+        })
+    </script>
+</body>
+</html>
