@@ -2,9 +2,9 @@
 module.exports = {
     student: {
         port: 3306,
-        username: 'root',
+        user: 'root',
         password: 'root',
-        host: 3306,
+        host: 'localhost',
         database: 'test'
     }
 }

@@ -45,8 +45,8 @@ module.exports = {
                 }
                 // 重写接口；
                 returnStatement(res, obj);
-
                 // 释放连接
+                connect.release();
             });
         });
     }
