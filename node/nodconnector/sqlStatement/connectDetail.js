@@ -14,7 +14,6 @@ let jsonWrite = (response, result) => {
             msg: '请求失败'
         });
     } else {
-        //console.log(result);
         response.json(result);
     }
 };
@@ -57,14 +56,13 @@ module.exports = {
         });
     },
     del: (req, res, next) => {
-        let sqldel = sql.del+req.query.id
         pool.getConnection((err, connect) => {
             // 获取前台页面传过来的参数
             let param = req.query || req.params;
-            let list = sql.add;
-
+            let del = sql.del + param.id;
+            console.log(del);
             // 建立连接，查询表中数据；
-            connect.query(sqldel, [], (err, result) =>{
+            connect.query(del, [], (err, result) =>{
                 if (err) {
                     console.log(err);
                     return;
@@ -73,22 +71,25 @@ module.exports = {
                 if (result) {
                     obj = {
                         result: result,
-                        code: 01,
+                        code: '02',
                         msg: '请求成功！'
                     }
                 }
                 jsonWrite(res, obj);
-
                 // 释放连接
                 connect.release();
             })
         });
     },
     add: (req, res, next) => {
-        let sqldel = sql.del+req.query.id
         pool.getConnection((err, connect) => {
             // 获取前台页面传过来的参数
-            let param = req.query || req.params;
+            let param = req.query || req.body;
+            console.log('query', req.query);
+            console.log('body', req.body);
+            console.log(param);
+            let add = sql.add + '('+ param.name +','+ param.sex +','+ param.age +','+ param.tel +')';
+            console.log(add);
             // 建立连接，查询表中数据；
             connect.query(sqldel, [], (err, result) =>{
                 if (err) {
@@ -99,7 +100,7 @@ module.exports = {
                 if (result) {
                     obj = {
                         result: result,
-                        code: 01,
+                        code: '01',
                         msg: '请求成功！'
                     }
                 }
