@@ -84,14 +84,11 @@ module.exports = {
     add: (req, res, next) => {
         pool.getConnection((err, connect) => {
             // 获取前台页面传过来的参数
-            let param = req.query || req.body;
-            console.log('query', req.query);
-            console.log('body', req.body);
-            console.log(param);
-            let add = sql.add + '('+ param.name +','+ param.sex +','+ param.age +','+ param.tel +')';
+            let param = req.query == {} || req.body;
+            let add = sql.add + '(\''+ param.name +'\',\''+ param.sex +'\','+ param.age +','+ param.tel +')';
             console.log(add);
             // 建立连接，查询表中数据；
-            connect.query(sqldel, [], (err, result) =>{
+            connect.query(add, [], (err, result) =>{
                 if (err) {
                     console.log(err);
                     return;
