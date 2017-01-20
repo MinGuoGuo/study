@@ -33,24 +33,33 @@
             return urlObj;
         }
 
+        function serialJSON($dom) {
+            var newJson = {};
+            $dom.each(function () {
+                newJson[$(this).attr('name')] = $(this).val();
+            });
+            return newJson;
+        }
         // 点击返回按钮返回上一页；
         $('.btn-back').on('click', function () {
             window.history.go(-1);
         });
 
         // 如果是修改页面，初始化页面；
+        initPage();
         function initPage() {
             if (getUrlObj().modify) {
                 $.ajax({
                     type: 'post',
-                    url: 'http://localhost:9001/update',
+                    url: 'http://localhost:9001/detail',
                     data: {
                         id: getUrlObj().id
                     },
                     dataType: 'json',
                     success: function (data) {
-                        var result = data.result;
-                        if (data.code == 1) {
+                        var result = data.result[0];
+                        console.log(result);
+                        if (data.code == '01') {
                             for (var key in result) {
                                 $('[name="'+ key +'"]').val(result[key]);
                             }
@@ -67,31 +76,39 @@
                 $.ajax({
                     type: 'post',
                     url: 'http://localhost:9001/update',
-                    data: {
-                        id: getUrlObj().id
-                    },
+                    data: $.extend(serialJSON($('[name]')), {id: getUrlObj().id}),
                     dataType: 'json',
-                    success: fun
+                    success: function (data) {
+                        if (data.code == '01') {
+                            alert('修改成功！');
+                            window.location.href = 'index.html';
+                        } else {
+                            alert('修改失败！');
+                        }
+                    },
+                    error: function () {
+                        alert('修改失败！')
+                    }
                 })
             } else {
                 console.log('我在保存页面')
-                // $.ajax({
-                //     type: 'post',
-                //     url: 'http://localhost:9001/add',
-                //     data: {
-                //         name: $('input[name="name"]').val(),
-                //         age: $('input[name="age"]').val(),
-                //         tel: $('input[name="tel"]').val(),
-                //         sex: $('input[name="sex"]').val()
-                //     },
-                //     dataType: 'json',
-                //     success: function (data) {
-                //         console.log(data);
-                //         if (data.code == '01') {
-                //             window.location.href = 'index.html';
-                //         }
-                //     }
-                // });
+                $.ajax({
+                    type: 'post',
+                    url: 'http://localhost:9001/add',
+                    data: {
+                        name: $('input[name="name"]').val(),
+                        age: $('input[name="age"]').val(),
+                        tel: $('input[name="tel"]').val(),
+                        sex: $('input[name="sex"]').val()
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        if (data.code == '01') {
+                            window.location.href = 'index.html';
+                        }
+                    }
+                });
             }
         });
     </script>

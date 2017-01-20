@@ -112,15 +112,60 @@ module.exports = {
     },
     // 修改页面；
     update: (req, res, next) => {
+        // 连接数据库；
         pool.getConnection((err, connect) => {
             // 获取前端传过来的值；
             let param = req.query == {} || req.body;
             // 拼接sql语句；
-            let update = sql.list + 'id = '+ req.body.id;
-            console.log(update);
+            let update = sql.update + ' name=\''+param.name + '\', age='+param.age+', sex=\''+param.sex+'\', tel='+param.tel+' where id='+param.id;
+            console.log('update', update);
+            // 执行sql语句；
+            connect.query(update, [], (err, result) => {
+                if (err) {
+                    throw err;
+                    return;
+                }
+                let obj = {};
+                if (result) {
+                    obj = {
+                        result: result,
+                        code: '01',
+                        msg: '请求成功'
+                    }
+                }
+                // 重写接口；
+                jsonWrite(res, obj);
+                // 释放连接
+                connect.release();
+            });
+
         });
     },
     detail: (req, res, next) => {
-
+        pool.getConnection((err, connect) => {
+            let param = req.query == {} ||req.body;
+            // 拼接sql语句；
+            let detail = sql.list + ' where id=' + param.id;
+            console.log('detail', detail);
+            // 开始连接
+            connect.query(detail, [], (err, result) => {
+                if (err) {
+                    throw err;
+                    return;
+                }
+                let obj = {};
+                if (result) {
+                    obj = {
+                        result: result,
+                        code: '01',
+                        msg: '请求成功'
+                    }
+                }
+                // 重写接口
+                jsonWrite(res, obj);
+                // 释放连接
+                connect.release();
+            });
+        });
     }
 }

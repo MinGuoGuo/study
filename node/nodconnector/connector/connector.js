@@ -32,6 +32,16 @@ app.post('/add', urlencodedParser, (req, res, next) => {
     student.add(req, res, next);
 });
 
+// 详情页接口
+app.post('/detail', urlencodedParser, (req, res, next) => {
+    student.detail(req, res, next);
+});
+
+// 修改页面接口；
+app.post('/update', urlencodedParser, (req, res, next) => {
+    student.update(req, res, next)
+});
+
 // 设置静态文件；
 app.use(express.static('public'));
 app.get('/', (req, res) => {
