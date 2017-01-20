@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input class="data" type="text" name="name">
+        <input class="data" type="text" name="age">
+    </div>
+    <div>
+        <input class="data" type="text" name="tel">
+        <select class="data" name="sex" id="">
+            <option value=""></option>
+            <option value="1">男</option>
+            <option value="2">女</option>
+        </select>
+    </div>
+    <button class="btn">获取</button>
+    <script src="../base/jquery-3.0.0.min.js"></script>
+    <script>
+        // 注意此方法是通过name值获取的；所有该元素必须要用name属性；
+        function serializeJSON(arr) {
+            var newJson = {};
+            arr.each(function () {
+                newJson[$(this).attr('name')] = $(this).val();
+            });
+            return newJson;
+        }
+        //var dataJson = {};
+        $('.btn').on('click', function () {
+            // 用each获取表单值；
+            // $('[name]').each(function() {
+            //     dataJson[$(this).attr('name')] = $(this).val();
+            // });
+            console.log(serializeJSON($('[name]')));
+        });
+        var json = {
+            name: 'lbj',
+            age: 31,
+            sex: '男'
+        }
+
+        // 直接循环对象的；
+        // for (var i in json) {
+        //     console.log(i, json[i]);
+        // }
+
+        // 直接循环对象的；
+        // $.each(json, function (key, value) {
+        //     console.log(key, value);
+        // });
+
+    </script>
+</body>
+
+</html>

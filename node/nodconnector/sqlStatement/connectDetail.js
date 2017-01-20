@@ -20,6 +20,7 @@ let jsonWrite = (response, result) => {
 
 // 将接口写成对象的形式暴露出去；
 module.exports = {
+    // 列表页
     list: (req, res, next) => {
         pool.getConnection((err, connect) => {
             // 获取前端页面传过来的参数
@@ -55,6 +56,7 @@ module.exports = {
             })
         });
     },
+    // 删除页
     del: (req, res, next) => {
         pool.getConnection((err, connect) => {
             // 获取前台页面传过来的参数
@@ -81,6 +83,7 @@ module.exports = {
             })
         });
     },
+    // 新增页
     add: (req, res, next) => {
         pool.getConnection((err, connect) => {
             // 获取前台页面传过来的参数
@@ -107,4 +110,17 @@ module.exports = {
             })
         });
     },
+    // 修改页面；
+    update: (req, res, next) => {
+        pool.getConnection((err, connect) => {
+            // 获取前端传过来的值；
+            let param = req.query == {} || req.body;
+            // 拼接sql语句；
+            let update = sql.list + 'id = '+ req.body.id;
+            console.log(update);
+        });
+    },
+    detail: (req, res, next) => {
+
+    }
 }

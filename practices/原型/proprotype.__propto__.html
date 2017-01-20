@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>prototype</title>
+</head>
+<body>
+    <h1>prototype</h1>
+    <script>
+        var Box = function () {};
+        console.log('prototype', Box.prototype); //object  里面包含constructor和__propto__
+        console.log(Box.__proto__); //function
+
+        var b = new Box();
+        console.log(b.prototype);  // undefined
+        console.log('__proto__', b.__proto__);  //object 通过new出来一个实例以后能打印出来值了里面包含constructor和__propto__；
+
+        console.log(Box.prototype === b.__proto__); // true
+
+
+        var Person = function(){};
+           Person.prototype.sayName = function() {
+               console.log("My Name is Jacky");
+           };
+
+       Person.prototype.age = 27;
+       var p = new Person();
+       p.sayName();
+       console.log(p.age);
+    </script>
+
+</body>
+</html>

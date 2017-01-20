@@ -63,7 +63,7 @@
                             +  '<td>'+ result[i].age +'</td>'
                             +  '<td>'+ result[i].sex +'</td>'
                             +  '<td>'+ result[i].tel +'</td>'
-                            +  '<td><a href="javascript:;" id="'+ result[i].id+'">修改</a><a class="btn-del" href="javascript:;" id="'+ result[i].id+'">删除</a></td>'
+                            +  '<td><a href="add.html?modify=1&id='+result[i].id+'" id="'+ result[i].id+'">修改</a><a class="btn-del" href="javascript:;" id="'+ result[i].id+'">删除</a></td>'
                             +  '</tr>'
                     }
                     $('.tbody').html(str);

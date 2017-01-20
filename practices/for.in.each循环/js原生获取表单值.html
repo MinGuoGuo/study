@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input class="data" type="text" name="name">
+        <input class="data" type="text" name="age">
+    </div>
+    <div>
+        <input class="data" type="text" name="tel">
+        <select class="data" name="sex" id="">
+            <option value=""></option>
+            <option value="1">男</option>
+            <option value="2">女</option>
+        </select>
+    </div>
+    <button id="btn">获取</button>
+    <script>
+        var oBtn = document.getElementById('btn');
+        var newJson = {};
+        oBtn.onclick = function () {
+            var data = document.getElementsByClassName('data');
+            for (var i = 0; i < data.length; i++) {
+                newJson[data[i].name] = data[i].value;
+            }
+            console.log(newJson);
+        };
+    </script>
+</body>
+</html>
