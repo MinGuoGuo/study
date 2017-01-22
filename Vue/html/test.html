@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind</title>
+</head>
+<body>
+    <!-- v-bind的实质就是添加一个自定义属性 -->
+    <!-- 通过指令传入数组 -->
+    <!-- 第二个参数index是可选的 -->
+    <table id="app">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+            </tr>
+            <tbody>
+                <tr v-for="(item, index) in result">
+                    <td>{{ index + 1 }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.age }}</td>
+                    <td>{{ item.sex }}</td>
+                </tr>
+            </tbody>
+        </thead>
+    </table>
+    <script src="../base/vue.js"></script>
+    <script>
+        var app= new Vue({
+            el: '#app',
+            data:{
+                result: [
+                    {name: 'lbj', age: 32, sex: '男'},
+                    {name: 'wd', age: 35, sex: '男'},
+                    {name: 'kb', age: 38, sex: '男'},
+                ]
+            },
+            methods: {
+
+            }
+        });
+    </script>
+</body>
+</html>

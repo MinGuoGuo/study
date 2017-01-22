@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind</title>
+    <style>
+    .box {
+        border:1px dashed #f0f;
+    }
+    .textColor {
+        color:#f00;
+        background-color:#eef;
+    }
+    .textSize {
+        font-size:30px;
+        font-weight:bold;
+    }
+    </style>
+</head>
+<body>
+    <!-- v-bind的实质就是添加一个自定义属性 -->
+    <!-- 通过指令传入数组 -->
+    <div id="app">
+        <ul class="box" v-bind:class="[isA?classA:'', classB]">
+            <li>学习Vue</li>
+            <li>学习Node</li>
+            <li>学习React</li>
+        </ul>
+        <button v-on:click="changeStyle">Change style</button>
+    </div>
+    <script src="../base/vue.js"></script>
+    <script>
+        var oBtn = document.getElementById('btn');
+        var vm= new Vue({
+            el: '#app',
+            data:{
+                classA: 'textColor',
+                classB: 'textSize',
+                isA: false
+            },
+            methods: {
+                changeStyle: function () {
+                    if (this.isA) {
+                        this.isA = false;
+                    } else {
+                        this.isA = true;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

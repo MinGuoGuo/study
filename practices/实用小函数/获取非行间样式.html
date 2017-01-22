@@ -18,11 +18,11 @@
 			// currentStyle是用来获取非行间样式的；并且只能兼容ie浏览器；
 			// getCompoutedStyle用来获取火狐和谷歌浏览器的行间样式；
 			var oDiv = document.getElementById('div1');
-//			alert(oDiv.currentStyle.width);
+			// alert(oDiv.currentStyle.width);
 			function getStyle(obj, name) {
 				//var oDiv = document.getElementById('div1');
-				//alert(oDiv.currentStyle.height);	
-				//console.log('height', oDiv.currentStyle.height)
+				//alert(oDiv.currentStyle.height);
+				//console.log('height', oDiv.currentStyle.height);
 				//alert(getComputedStyle(oDiv, null).height);
 				if (obj.currentStyle) {
 					return obj.currentStyle[name];  // 兼容ie浏览器
@@ -32,7 +32,7 @@
 			}
 			alert(getStyle(oDiv, 'width'));
 		}
-			
+
 		</script>
 	</body>
 </html>
