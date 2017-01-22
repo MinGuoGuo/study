@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>V-for!</title>
+    <style media="screen">
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
         <ol>
-            <li v-for="data in todos">
+            <li v-for="(data, index) in todos" v-bind:id="index">
                 {{ data.text }}
+                <a href="javascript:;" v-bind:id="index" v-on:click="del">X</a>
             </li>
         </ol>
     </div>
@@ -20,10 +26,16 @@
             el: '#app',
             data: {
                 todos:[
-                    { text: 'Vue' },
-                    { text: 'React' },
-                    { text: 'Node' }
+                    { id: 1, text: 'Vue' },
+                    { id: 2, text: 'React' },
+                    { id: 3, text: 'Node' }
                 ]
+            },
+            methods: {
+                del: function (event) {
+                    // this.todos.splice(index, 1)
+                    console.log(event.target.id);
+                }
             }
         });
     </script>
