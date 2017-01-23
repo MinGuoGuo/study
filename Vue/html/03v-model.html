@@ -8,11 +8,8 @@
 </head>
 <body>
     <div id="app">
-        <h1>{{ typeof message }}</h1>
-        <input type="text" @keyup="keyup" v-model="message">
-        <input type="text" @keyup="keyup" v-model="num1">
-        <input type="text" @keyup="keyup" v-model="num2">
-        结果：<p>{{ isNaN(parseFloat(num1) + parseFloat(num2))? '' :  parseFloat(num1) + parseFloat(num2)}}</p>
+        <input type="text" v-model="message">
+        <h1>{{ message }}</h1>
     </div>
     <script src="../base/vue.js"></script>
     <script>
@@ -20,16 +17,8 @@
             el: '#app',
             data: {
                 message: 'Hello Vue.js!',
-                num1: '',
-                num2: ''
             },
-            methods: {
-                keyup: function () {
-                    console.log(this.message);
-                }
-            }
         });
-        console.log(app.message);
     </script>
 </body>
 </html>

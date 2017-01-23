@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="app">
+            <my_component></my_component>
+        </div>
+        <script src="../base/vue.js"></script>
+        <script>
+            // 必要步骤，注册一个组件；
+            Vue.component('my_component', {
+                template: '<div>My first component!</div>'
+            });
+
+            // 创建根实例;
+            new Vue({
+                el: '#app'
+            })
+        </script>
+    </body>
+</html>
