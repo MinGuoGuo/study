@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-show</title>
+</head>
+<body>
+    <div id="app">
+        <p v-show="property">好好学习，天天向上！</p>
+        <button @click="test">test</button>
+    </div>
+    <script src="../base/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                property: true
+            },
+            methods: {
+                test: function () {
+                    if (this.property) {
+                        this.property = false;
+                    } else {
+                        this.property = true;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
