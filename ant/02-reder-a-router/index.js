@@ -10,11 +10,14 @@ import Nav from './src/component/Nav';
         <Route path="/About" component={About} />
     </Router>
 ), document.getElementById('app'));*/
+// 测试用的咯
+let arr = [1, 2, 3];
+console.log(...arr);
+
+
 render(
     <div>
         <Nav />
     </div>,
     document.getElementById('app')
 );
-
-
