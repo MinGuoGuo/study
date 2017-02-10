@@ -1,0 +1,26 @@
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.nav {
+    position: fixed;
+    height: 100%;
+    top: 80px;
+    left: 0;
+}
+ul.ant-menu.ant-menu-inline.ant-menu-light.ant-menu-root {
+    height: 100%;
+}
+.content {
+    min-width: 800px;
+    padding-top: 20px;
+    padding-left: 40px;
+    position: fixed;
+    left: 250px;
+    top: 90px;
+}
+.table {
+    margin-top: 20px;
+}

@@ -15,8 +15,8 @@
     </div>
     <div>
         <input class="data" type="text" name="tel">
-        <select class="data" name="sex" id="">
-            <option value=""></option>
+        <select class="data" name="sex" id="" disabled="disabled">
+            <!-- <option value=""></option> -->
             <option value="1">男</option>
             <option value="2">女</option>
         </select>
@@ -24,7 +24,7 @@
     <button class="btn">获取</button>
     <script src="../base/jquery-3.0.0.min.js"></script>
     <script>
-        // 注意此方法是通过name值获取的；所有该元素必须要用name属性；
+        // 注意此方法是通过name值获取的；所有该元素必须要用name属性；arr是一个通过name属性获取的数组
         function serializeJSON(arr) {
             var newJson = {};
             arr.each(function () {
