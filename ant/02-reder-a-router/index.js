@@ -12,8 +12,16 @@ import Nav from './src/component/Nav';
 ), document.getElementById('app'));*/
 // 测试用的咯
 let arr = [1, 2, 3];
+let arr2 = [4, 5, 6];
 console.log(...arr);
+//console.log(arr.push(4, 5, 6));
+console.log(arr.push(...arr2));
+console.log(arr);
 
+let add = (x, y) => {
+    return x + y;
+}
+console.log(add(...arr2));
 
 render(
     <div>

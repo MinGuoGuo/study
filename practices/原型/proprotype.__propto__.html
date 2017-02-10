@@ -12,13 +12,14 @@
         var Box = function () {};
         console.log('prototype', Box.prototype); //object  里面包含constructor和__propto__
         console.log(Box.__proto__); //function
+        console.log('---------------');
 
         var b = new Box();
         console.log(b.prototype);  // undefined
         console.log('__proto__', b.__proto__);  //object 通过new出来一个实例以后能打印出来值了里面包含constructor和__propto__；
 
         console.log(Box.prototype === b.__proto__); // true
-
+        console.log('--------------');
 
         var Person = function(){};
            Person.prototype.sayName = function() {

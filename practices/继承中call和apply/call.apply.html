@@ -62,8 +62,8 @@
             }
         }
         function Cat(name) {
-            Dog.apply(this, [name]);
-            //Dog.apply(this, name);
+            //Dog.apply(this, [name]);
+            Dog.call(this, name);
         }
         // console.log(Cat);
         var cat = new Cat('kitty');
