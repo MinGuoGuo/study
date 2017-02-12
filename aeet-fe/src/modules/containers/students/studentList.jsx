@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { Row, Col, Input, Button, Icon, Table } from 'antd';
+import { Row, Col, Input, Button, Icon, Table, Form } from 'antd';
+const FormItem = Form.Item;
+function hasErrors(fieldsError) {
+  return Object.keys(fieldsError).some(field => fieldsError[field]);
+}
 import './studentList.css'
 
 const data = [{
@@ -19,18 +23,24 @@ const data = [{
   address: 'Sidney No. 1 Lake Park',
 }];
 
-export default class studentList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: null,
-        }
+class studentList extends Component {
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+          if (!err) {
+            console.log('Received values of form: ', values);
+          }
+        });
     }
     componentWillMount() {
         // ajax
     }
     ComponentDidMount() {
-
+        // To disabled submit button at the beginning.
+        this.props.form.validateFields();
+    }
+    handleFormLayoutChange = (e) => {
+        this.setState({ formLayout: e.target.value });
     }
     render() {
         const columns = [{
@@ -59,13 +69,59 @@ export default class studentList extends Component {
             </span>
           ),
         }];
+        const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
+        // Only show error after a field is touched.
+        const userNameError = isFieldTouched('userName') && getFieldError('userName');
+        const passwordError = isFieldTouched('password') && getFieldError('password');
         return (
             <div>
                 <div className="search-selection">
-                    姓名：<Input size="large" data-type="name" style={{width: 160, marginRight: 40}} placeholder="姓名"/>
+                    {/* 姓名：<Input size="large" data-type="name" style={{width: 160, marginRight: 40}} placeholder="姓名"/>
                     年龄：<Input size="large" data-type="age" style={{width: 160, marginRight: 40}} placeholder="年龄"/>
                     <Button type="primary" size="large">搜索</Button>
-                    <Button type="primary" size="large" style={{marginLeft: 20}}>新建</Button>
+                    <Button type="primary" size="large" style={{marginLeft: 20}}>新建</Button> */}
+                    <Form inline onSubmit={this.handleSubmit}>
+                        <FormItem
+                        //   validateStatus={userNameError ? 'error' : ''}
+                        //   help={userNameError || ''}
+                        label="姓名"
+                        >
+                          {/* {getFieldDecorator('userName', {
+                            rules: [{ required: true, message: 'Please input your username!' }],
+                          })( */}
+                            <Input placeholder="姓名" />
+                          {/* )} */}
+                        </FormItem>
+                        <FormItem
+                        //   validateStatus={passwordError ? 'error' : ''}
+                        //   help={passwordError || ''}
+                            label="年龄"
+                            style={{marginLeft: 30}}
+                        >
+                          {/* {getFieldDecorator('password', {
+                            rules: [{ required: true, message: 'Please input your Password!' }],
+                          })( */}
+                            <Input placeholder="年龄" />
+                          {/* )} */}
+                        </FormItem>
+                        <FormItem style={{marginLeft: 40}}>
+                          <Button
+                            type="primary"
+                            htmlType="submit"
+                            disabled={hasErrors(getFieldsError())}
+                            style={{marginRight: 10}}
+                          >
+                            搜索
+                          </Button>
+                          <Button
+                            type="primary"
+                            htmlType="submit"
+                            disabled={hasErrors(getFieldsError())}
+                          >
+                            重置
+                          </Button>
+                        </FormItem>
+                    </Form>
                 </div>
                 <div className="table">
                     <Table columns={columns} dataSource={data} />
@@ -74,3 +130,4 @@ export default class studentList extends Component {
         )
     }
 }
+export const List = Form.create()(studentList);
