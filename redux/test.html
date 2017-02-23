@@ -30,7 +30,7 @@
 		var oBtn = document.getElementById('btn');
 
 		//创建一个reducer来表明如何管理state ；
-		function setStyle (state, action) {
+		function setStyle (state = '', action) {
 			switch (action.type) {
 				case 'blue':
 					return 'blue';
@@ -52,16 +52,30 @@
 		render();
 		store.subscribe(render);
 
+		//定义两个action来控制变量；
+		function getBlue(data) {
+			return {
+				type: 'blue',
+				payLoad: data
+			}
+		}
+
+		function getRed(data) {
+			return {
+				type: 'red',
+				payLoad: data
+			}
+		}
 		//创建一个action来具体操作state
 		oBtn.addEventListener('click', function () {
-			store.dispatch ({
-				type : 'blue'
-			})
+			store.dispatch (
+				getBlue('变蓝')
+			)
 		});
 		oBtn2.addEventListener('click', function () {
-			store.dispatch ({
-				type: 'red'
-			})
+			store.dispatch (
+				getRed('变红')
+			)
 		});
 
 	</script>

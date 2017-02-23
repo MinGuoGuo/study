@@ -32,7 +32,8 @@
         function sub(a, b) {
             console.log(a-b);
         }
-        add.call(sub, 3, 1); //输出的是4， 7 变成加法了；
+        add.call(sub, 1, 2); //输出的是4，变成加法了；
+//      sub(3, 4)
 
         // 示例2
         /*在构造函数中this指向它new出来的新对象*/

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>真假判断</title>
+	</head>
+
+	<body>
+		<script>
+			var _temporalUndefined = {};
+			var arrayLike = _temporalUndefined;
+
+			var arr2 = _temporalUndefined;
+
+			function _temporalAssertDefined(val, name, undef) {
+				if(val === undef) {
+					throw new ReferenceError(name + ' is not defined - temporal dead zone');
+				}
+				return true;
+			}
+
+			arrayLike = {
+				'0': 'a',
+				'1': 'b',
+				'2': 'c'
+			};
+			arr2 = Array.from(_temporalAssertDefined(arrayLike, 'arrayLike', _temporalUndefined) && arrayLike);
+			console.log((_temporalAssertDefined(arr2, 'arr2', _temporalUndefined) && arr2).length);
+		</script>
+
+</html>

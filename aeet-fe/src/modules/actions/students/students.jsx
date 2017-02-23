@@ -1,20 +1,32 @@
-import urlConfig from '../../api';
-import fetch from 'whatwg-fetch';
+import { urlConfig } from '../../api';
+import $ from 'jquery'
+import * as types from '../../constants/ActionType.jsx'
+import fetch from 'isomorphic-fetch';
 
-export const getList = () => {
-    fetch(urlConfig.list, {
+export const getStudentsList = (queryObj) => {
+    return dispatch => {
+       return fetch('http://127.0.0.1/sellDoor/php/list.php', {
             method: 'POST',
             headers: {'Content-Type': 'text/plain'},
-            body: JSON.stringify({page: this.state.pageNo, pagesize: 5, name: this.state.name, age: this.state.age})
-        }).then( (response) => {
-                return response.json();
-            }).then((result)=>  {
-                this.setState({
-                    data: result.list,
-                    count: result.count,
-                    loading: false
-                });
-        }).catch((error) => {
-            alert('请求失败！')
+            body: JSON.stringify(queryObj)
         })
+        .then( (response) => {
+            return response.json();
+        })
+        .then((result)=>  {
+            dispatch(receiveStudentList(result));
+        })
+        .catch((error) => {
+            alert('请求失败呀')
+        })
+
+    };
+
+};
+
+function receiveStudentList(data) {
+    return {
+        type: types.INITSTUDENTSLIST,
+        payLoad: data
+    }
 }

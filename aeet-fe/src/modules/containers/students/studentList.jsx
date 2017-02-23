@@ -1,133 +1,167 @@
 import React, { Component } from 'react';
-import { Row, Col, Input, Button, Icon, Table, Form } from 'antd';
+import { Row, Col, Input, Button, Icon, Table, Form, Popconfirm, message } from 'antd';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
+import $ from 'jquery';
 const FormItem = Form.Item;
+import { getStudentsList, delStudent } from '../../actions/index.jsx';
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
 import './studentList.css'
 
-const data = [{
-  key: '1',
-  name: 'John Brown',
-  age: 32,
-  address: 'New York No. 1 Lake Park',
-}, {
-  key: '2',
-  name: 'Jim Green',
-  age: 42,
-  address: 'London No. 1 Lake Park',
-}, {
-  key: '3',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-}];
-
 class studentList extends Component {
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-          if (!err) {
-            console.log('Received values of form: ', values);
-          }
-        });
+    constructor(props) {
+        super(props);
     }
     componentWillMount() {
-        // ajax
+
     }
-    ComponentDidMount() {
-        // To disabled submit button at the beginning.
-        this.props.form.validateFields();
+    componentDidMount() {
+        let obj = {name: '', age: '', page: 1, pagesize: 10};
+        const { dispatch } = this.props;
+        dispatch(getStudentsList(obj));
     }
-    handleFormLayoutChange = (e) => {
-        this.setState({ formLayout: e.target.value });
+    searchClick() {
+        const { dispatch } = this.props;
+        let searchData = this.props.form.getFieldsValue();
+        searchData.pagesize = 5;
+        searchData.page = 1;
+        for (var i in searchData) {
+            if(searchData[i] == undefined) {
+                searchData[i] = '';
+            }
+        }
+        dispatch(getStudentsList(searchData));
+    }
+    delClick(id) {
+        const { dispatch, pagination } =this.props;
+        dispatch(delStudent({id: id}));
+        let searchData = this.props.form.getFieldsValue();
+        console.log('pagination', pagination);
+        searchData.page = pagination.current;
+        searchData.pagesize = 5;
+        dispatch(getStudentsList(searchData));
+    }
+    handTableChange(e) {
+        const { dispatch } = this.props;
+        let searchData = this.props.form.getFieldsValue();
+        for (var i in searchData) {
+            if(searchData[i] == undefined) {
+                searchData[i] = '';
+            }
+        }
+        searchData.page = e.current;
+        searchData.pagesize = 5;
+        dispatch(getStudentsList(searchData));
     }
     render() {
+        const { data, pagination } = this.props;
         const columns = [{
           title: '姓名',
-          dataIndex: 'name',
-          key: 'name',
-          render: text => <a href="#">{text}</a>,
+          dataIndex: 'test_name',
+          key: 'test_name'
         }, {
           title: '年龄',
-          dataIndex: 'age',
-          key: 'age',
+          dataIndex: 'test_age',
+          key: 'test_age'
         }, {
-          title: '地址',
-          dataIndex: 'address',
-          key: 'address',
-        }, {
+          title: '性别',
+          dataIndex: 'test_sex',
+          key: 'test_sex'
+        },{
+            title: '电话',
+            dataIndex: 'test_phone',
+            key: 'test_phone'
+        },{
           title: '操作',
-          key: 'action',
+          key: 'test_id',
+          dataIndex: 'test_id',
           render: (text, record) => (
             <span>
-              <a href="#">修改</a>
+              <span><Link to={{pathname: "modifyUser/" + record.test_id}}>修改</Link></span>
               <span className="ant-divider" />
-              <a href="#" className="ant-dropdown-link">
-                删除
-              </a>
+               <Popconfirm placement="topRight" title="是否删除本条数据" onConfirm={this.delClick.bind(this, record.test_id)} okText="确认" cancelText="取消">
+                   <a href="javascript:;">
+                       删除
+                   </a>
+               </Popconfirm>
             </span>
-          ),
+          )
         }];
         const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
-        // Only show error after a field is touched.
-        const userNameError = isFieldTouched('userName') && getFieldError('userName');
-        const passwordError = isFieldTouched('password') && getFieldError('password');
         return (
             <div>
                 <div className="search-selection">
-                    {/* 姓名：<Input size="large" data-type="name" style={{width: 160, marginRight: 40}} placeholder="姓名"/>
-                    年龄：<Input size="large" data-type="age" style={{width: 160, marginRight: 40}} placeholder="年龄"/>
-                    <Button type="primary" size="large">搜索</Button>
-                    <Button type="primary" size="large" style={{marginLeft: 20}}>新建</Button> */}
-                    <Form inline onSubmit={this.handleSubmit}>
+                    <Form inline from={this.props.from}>
                         <FormItem
-                        //   validateStatus={userNameError ? 'error' : ''}
-                        //   help={userNameError || ''}
-                        label="姓名"
+                            label="姓名"
                         >
-                          {/* {getFieldDecorator('userName', {
-                            rules: [{ required: true, message: 'Please input your username!' }],
-                          })( */}
-                            <Input placeholder="姓名" />
-                          {/* )} */}
+                            {getFieldDecorator('name')(
+                                <Input />
+                            )}
                         </FormItem>
                         <FormItem
-                        //   validateStatus={passwordError ? 'error' : ''}
-                        //   help={passwordError || ''}
                             label="年龄"
-                            style={{marginLeft: 30}}
                         >
-                          {/* {getFieldDecorator('password', {
-                            rules: [{ required: true, message: 'Please input your Password!' }],
-                          })( */}
-                            <Input placeholder="年龄" />
-                          {/* )} */}
+                            {getFieldDecorator('age')(
+                                <Input />
+                            )}
                         </FormItem>
-                        <FormItem style={{marginLeft: 40}}>
+                        <FormItem style={{margin: '0 20px'}}>
                           <Button
                             type="primary"
-                            htmlType="submit"
-                            disabled={hasErrors(getFieldsError())}
-                            style={{marginRight: 10}}
+                            onClick={this.searchClick.bind(this)}
                           >
                             搜索
                           </Button>
                           <Button
                             type="primary"
-                            htmlType="submit"
-                            disabled={hasErrors(getFieldsError())}
+                            style={{margin: '0 20px'}}
                           >
                             重置
                           </Button>
                         </FormItem>
                     </Form>
+                    <div style={{margin: '20px 0'}}>
+                        <FormItem>
+                            <Button
+                                type="primary"
+                            >
+                                <Link to="/adduser">新建</Link>
+                            </Button>
+                        </FormItem>
+                    </div>
                 </div>
                 <div className="table">
-                    <Table columns={columns} dataSource={data} />
+                    <Table bordered pagination={pagination} onChange={this.handTableChange.bind(this)} columns={columns} dataSource={data}  rowKey={(record, index)=>index} />
                 </div>
             </div>
         )
     }
 }
-export const List = Form.create()(studentList);
+const student = Form.create()(studentList);
+
+//将所有的state绑定到ui组件上去；
+//const mapStateToProps = (state) => {j/
+//    console.log('state', state.initStudentList);
+//    return {
+//        data: state
+//    }
+//};
+function mapStateToProps(state) {
+    const data = state.initStudentList.studentListData;
+    const pagination = state.initStudentList.pagination;
+    return {
+        data,
+        pagination
+    }
+}
+
+ //将action上所有的方法绑定到组件上去；
+//const mapDispatchToProps = (dispatch) => {
+//    return bindActionCreators(getStudentsList, dispatch);
+//};
+
+export default connect(mapStateToProps)(student);
