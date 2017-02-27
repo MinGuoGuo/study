@@ -6,18 +6,24 @@
     </head>
     <body>
         <div id="app">
-            <my_component></my_component>
+            <my-component v-bind:title="message"></my-component>
         </div>
         <script src="../base/vue.js"></script>
         <script>
             // 必要步骤，注册一个组件；
-            Vue.component('my_component', {
-                template: '<div>My first component!</div>'
+            Vue.component('my-component', {
+                props: ['title'],
+                template: '<div>{{title.message}}</div>'
             });
 
             // 创建根实例;
             new Vue({
-                el: '#app'
+                el: '#app',
+                data() {
+                    return {
+                        message: 'My first component!'
+                    }
+                }
             })
         </script>
     </body>

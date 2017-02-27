@@ -3,18 +3,16 @@ import { Row, Col, Input, Button, Icon, Table, Form, Popconfirm, message } from 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+
 import $ from 'jquery';
 const FormItem = Form.Item;
 import { getStudentsList, delStudent } from '../../actions/index.jsx';
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some(field => fieldsError[field]);
 }
-import './studentList.css'
 
 class studentList extends Component {
-    constructor(props) {
-        super(props);
-    }
+    
     componentWillMount() {
 
     }
@@ -36,13 +34,13 @@ class studentList extends Component {
         dispatch(getStudentsList(searchData));
     }
     delClick(id) {
-        const { dispatch, pagination } =this.props;
+        const { dispatch, pagination } = this.props;
         dispatch(delStudent({id: id}));
-        let searchData = this.props.form.getFieldsValue();
-        console.log('pagination', pagination);
-        searchData.page = pagination.current;
-        searchData.pagesize = 5;
-        dispatch(getStudentsList(searchData));
+        // let searchData = this.props.form.getFieldsValue();
+        // console.log('pagination', pagination);
+        // searchData.page = pagination.current;
+        // searchData.pagesize = 5;
+        // dispatch(getStudentsList(searchData));
     }
     handTableChange(e) {
         const { dispatch } = this.props;

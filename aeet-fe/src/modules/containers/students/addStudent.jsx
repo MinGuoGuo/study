@@ -6,13 +6,7 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 
 const addStudents = Form.create()(React.createClass({
-    //getInitialState() {
-    //    return {
-    //        passwordDirty: false,
-    //        loading: false,
-    //        text: '保存'
-    //    };
-    //},
+    
     handleSubmit(e) {
         e.preventDefault();
         const { dispatch } = this.props;

@@ -13,11 +13,12 @@
     </div>
     <script src="../base/vue.js"></script>
     <script>
-        var oBtn = document.getElementById('btn');
-        var app = new Vue({
+        let app = new Vue({
             el: '#app',
-            data: {
-                seen: true
+            data() {
+                return {
+                    seen: true
+                }
             },
             methods: {
                 view: function () {

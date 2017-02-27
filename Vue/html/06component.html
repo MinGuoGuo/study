@@ -11,6 +11,9 @@
         <ol>
             <todo-item v-for="item in player" v-bind:todo="item"></todo-item>
         </ol>
+        <!--<ol v-for="(item, index) in player " >
+            <li>{{ item.text }}</li>
+        </ol>-->
     </div>
     <script src="../base/vue.js"></script>
     <script>
