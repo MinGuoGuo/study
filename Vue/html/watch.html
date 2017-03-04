@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--<h1>{{ message }}</h1>
+        <button type="button" @click="handleClick">点击切换信息</button>-->
+        <input type="text" v-model="message">
+        <h1>{{ message }}</h1>
+    </div>
+    <script src="../base/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue.js!',
+            },
+            methods: {
+                handleClick() {
+                    this.message = '你好Vue！';
+                }
+            },
+            watch: {
+                message() {
+                    console.log(this.message)
+                }
+            }
+        });
+    </script>
+</body>
+</html>
