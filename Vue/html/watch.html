@@ -29,6 +29,12 @@
                 message() {
                     console.log(this.message)
                 }
+            },
+            created() {
+                console.log('我是created函数');
+            },
+            render() {
+                console.log('开始渲染咯！')
             }
         });
     </script>

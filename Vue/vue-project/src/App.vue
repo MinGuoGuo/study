@@ -12,6 +12,7 @@
               <el-menu-item-group>
                 <el-menu-item index="1-1"><router-link to="/">Welcome to vue</router-link></el-menu-item>
                 <el-menu-item index="1-2"><router-link to="/List">人员管理</router-link></el-menu-item>
+                <el-menu-item index="1-3"><router-link to="/counter">vuex加减法</router-link></el-menu-item>
               </el-menu-item-group>
             </el-submenu>
             <el-submenu index="2">
