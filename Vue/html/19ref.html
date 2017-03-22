@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ref</title>
+</head>
+<body>
+    <div id="app">
+        <my_child ref="child"></my_child>
+        <br>
+        <button @click="test">test</button>    
+    </div>
+    <script src="../base/vue.js"></script>
+    <script>
+        let Child = {
+            template: '姓名<input v-model="name" />',
+            data() {
+                return {
+                    name: ''
+                }
+            },
+            methods: {
+                getName() {
+                    const person = {};
+                    person.name = this.name;
+                    return person;
+                }
+            }
+        };
+        new Vue({
+            el: '#app',
+            components: {
+                my_child: Child
+            },
+            data() {
+                return {
+
+                }
+            },
+            methods: {
+                test() {
+                    console.log(this.$refs.child.getName());
+                }
+            }
+        })
+    </script>
+</body>
+</html>

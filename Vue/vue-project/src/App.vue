@@ -65,8 +65,9 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background: #ccc;
+  background: #0551a7;
   text-align: center;
+  z-index: 1000;
 }
 .nav-bar {
  height: 100%;

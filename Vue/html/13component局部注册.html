@@ -19,11 +19,16 @@
 
             // 局部注册；
             //var data = { counter: 0 }
-            var Child = {
-                template: '<button @click="counter += 1">{{ counter }}</button>',
+            let Child = {
+                template: '<button @click="add">{{ counter }}</button>',
                 data: function () {
                     return {
                         counter: 0
+                    }
+                },
+                methods: {
+                    add() {
+                        this.counter += 1;
                     }
                 }
             }

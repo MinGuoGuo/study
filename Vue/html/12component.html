@@ -6,14 +6,14 @@
     </head>
     <body>
         <div id="app">
-            <my-component v-bind:title="message"></my-component>
+            <my-component :title="message"></my-component>
         </div>
         <script src="../base/vue.js"></script>
         <script>
             // 必要步骤，注册一个组件；
             Vue.component('my-component', {
                 props: ['title'],
-                template: '<div>{{title.message}}</div>'
+                template: '<div>{{title}}</div>'
             });
 
             // 创建根实例;
