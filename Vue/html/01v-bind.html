@@ -30,12 +30,12 @@
             <li>学习Node</li>
             <li>学习React</li>
         </ul>
-        <button v-on:click="changeStyle">Change style</button>
+        <button @click="changeStyle">Change style</button>
     </div>
     <script src="../base/vue.js"></script>
     <script>
         var oBtn = document.getElementById('btn');
-        var vm = new Vue({
+        var vm= new Vue({
             el: '#app',
             data: {
                 classA: 'textColor',

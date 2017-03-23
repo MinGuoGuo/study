@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var Chinese = {
+        　　nation:'中国',
+            birthPlaces: ['北京','上海','香港']
+        }
+        // var Doctor = {
+        // 　　career:'医生'
+        // }
+        // Chinese.birthPlaces = ['北京','上海','香港'];
+        // 浅拷贝方法
+        // function extendCopy(obj) {
+        //     var newObj = {};
+        //     for(var key in obj) {
+        //         newObj[key] = obj[key];
+        //     }
+        //     return newObj;
+        // }
+        // var Doctor = extendCopy(Chinese);
+        // Doctor.birthPlaces.push('张家界');
+        // 深拷贝方法  采用递归调用的方法将里面的对象和方法都复制过去；
+        function deepCopy(p, c) {
+    　　　　var c = c || {};
+    　　　　for (var i in p) {
+        　　　　　　if (typeof p[i] === 'object') {
+        　　　　　　　　c[i] = (p[i].constructor === Array) ? [] : {};
+        　　　　　　　　deepCopy(p[i], c[i]);
+        　　　　　　} else {
+        　　　　　　　　　c[i] = p[i];
+        　　　　　　}
+        　　　　}
+        　　　　return c;
+    　 }
+       var Doctor = deepCopy(Chinese);
+       Doctor.birthPlaces.push('张家界');
+       Doctor.career = '医生';
+       console.log(Doctor);
+       console.log(Chinese);
+
+       var arr =[1, 2,3]
+       var blooen = true;
+       console.log(blooen.constructor === Boolean);
+    </script>
+</body>
+</html>

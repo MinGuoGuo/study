@@ -3,6 +3,7 @@ import react, { Component, PropTypes } from 'react';
 class Counter extends Component {
     render () {
         const { add, sub, counter } = this.props;
+        console.log(this.props);
         return (
             <div>
                 <p>

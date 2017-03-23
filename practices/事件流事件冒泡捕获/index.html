@@ -18,16 +18,18 @@
 	</head>
 	<body>
 		<div id="div1">哈哈</div>
-		<div id="div2"></div>
 		<script>
-			var oDiv = document.getElementById('div1');
-			oDiv.onclick = function () {
-				alert(this);
+			// var oDiv = document.getElementById('div1');
+			// oDiv.onclick = function (event) {
+			// 	alert(window.event)
+			// }
+			var str = 'get-element-by-id';
+			var arr = str.split('-');
+			for(var i = 1; i < arr.length; i++) {
+				arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substr(1);
 			}
-			var oDiv2 = document.getElementById('div2');
-			oDiv2.attachEvent('onclick', function () {
-				alert(this);
-			})
+			var str1 = arr.join('');
+			console.log(str1);
 		</script>
 	</body>
 </html>

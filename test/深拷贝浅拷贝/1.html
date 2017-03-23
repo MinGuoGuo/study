@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 注  最简单的方法直接JSON.parse(JSON.stringify());
+        var obj = {
+        　　nation:'中国',
+            birthPlaces: {
+                address: '张家界'
+            }
+        };
+        var obj2 = new Object();
+        // obj2.nation = obj.nation;
+        // obj2.birthPlaces = obj.birthPlaces;
+        obj2 = JSON.parse(JSON.stringify(obj))
+        obj2.birthPlaces.address = '金岩';
+        console.log(obj2);
+        console.log(obj)
+    </script>
+</body>
+</html>

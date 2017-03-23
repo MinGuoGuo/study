@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function say667() {
+            var num = 666;
+            var sayAlert = function() { alert(num); }
+            num++;
+            return sayAlert;
+        }
+        var sayAlert = say667();
+        sayAlert()
+
+    </script>
+</body>
+</html>

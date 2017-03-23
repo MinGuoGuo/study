@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hello Vue!!!</title>
 </head>
+
 <body>
     <div id="app">
         <h1>
@@ -14,12 +16,17 @@
     </div>
     <script src="../base/vue.js"></script>
     <script>
-        var app = new Vue({
+        const message = 'Hello Vue!'
+        let app = new Vue({
             el: '#app',
-            data: {
-                message: 'Hello Vue!'
-            }
+            data() {
+                return {
+                    message: 'Hello Vue!'
+                }
+                 
+            },
         });
     </script>
 </body>
+
 </html>

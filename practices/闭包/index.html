@@ -7,20 +7,91 @@
 	</head>
 
 	<body>
+		<div id="div">
+			<button id="btn">Test Button</button>
+		</div>
 		<script type="text/javascript">
-			function f() {
-				var arr = [];
-				for(var i = 0; i < 10; i++) {
-					arr[i] = function() {
-						return i;
-					};
-				}
-				return arr;
+			var oDiv = document.getElementById('div');
+			var oBtn = document.getElementById('btn');
+			oBtn.onclick = function() {
+				alert('button');
+			};
+			oDiv.onclick = function() {
+				alert('div')
 			}
-			var fn = f();
-			for(var i = 0; i < fn.length; i++) {
-				console.log('函数fn[' + i + ']()返回值:' + fn[i]());
-			}
+			// function f() {
+			// 	var arr = [];
+			// 	for(var i = 0; i < 10; i++) {
+			// 		arr[i] = function() {
+			// 			return i;
+			// 		};
+			// 	}
+			// 	return arr;
+			// }
+			// var fn = f();
+			// for(var i = 0; i < fn.length; i++) {
+			// 	console.log('函数fn[' + i + ']()返回值:' + fn[i]());
+			// }
+		// 	var name = "The Window";
+		// 　　var object = {
+		// 　　　　name: "My Object",
+		// 　　　　getNameFunc: function(){
+		// 　　　　　　return function(){
+		// 　　　　　　　　return this.name;
+		// 　　　　　　};
+		// 　　　　}
+		// 　　};
+		// 　　alert(object.getNameFunc()());
+		// 	var name = "The Window";
+		// 　　var object = {
+		// 　　　　name : "My Object",
+		// 　　　　getNameFunc : function(){
+		// 　　　　　　var that = this;
+		// 　　　　　　return function(){
+		// 　　　　　　　　return that.name;
+		// 　　　　　　};
+		// 　　　　}
+		// 　　};
+		// 　　alert(object.getNameFunc()());
+		// function a(b){
+		// 	alert(b);
+		// 	function b(){
+		// 		alert(b);
+		// 	}
+		// 	b();
+		// }
+		
+		// a(1);
+
+			// var box = 1;
+			// function box() {
+			// 	return 555;
+			// }
+			// // function box() {
+			// 	alert(b);
+			// 	function b(){
+			// 		return 'asdf'
+			// 	}
+			// function a(b){
+			// alert(box);
+			// }
+			// 	alert(b);
+				
+			// 	b();
+
+
+			// 	function b(){
+			// 		alert(b);
+			// 	}
+			// }
+			
+			// a(1);
+			// var arr = [1, 3, 4, 5, 7];
+			// var arr1 = arr.slice(1, 3);
+			// var arr1 = arr.splice(1, 3);
+			// console.log(arr1);			
+			// console.log(arr);
+			console.log(4 + true);
 		</script>
 	</body>
 

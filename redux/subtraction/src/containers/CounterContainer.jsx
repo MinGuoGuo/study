@@ -2,6 +2,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Counter from '../component/counter.jsx';//直接引入ui组件即可
 import * as CounterAction from '../actions/CounterAction.jsx';
+console.log(CounterAction);
 
 //将state绑定到ui组件的props上去；
 const mapStateToProps = (state) => {
@@ -16,4 +17,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
-

@@ -3,6 +3,7 @@
     left: 0;
     top: 0;
     width: 100%;
+    z-index: 100;
 }
 .nav {
     position: fixed;
@@ -16,11 +17,14 @@ ul.ant-menu.ant-menu-inline.ant-menu-light.ant-menu-root {
 .content {
     min-width: 800px;
     padding-top: 20px;
-    padding-left: 40px;
-    position: fixed;
-    left: 250px;
-    top: 90px;
+    margin-left: 250px;
+    margin-top: 90px;
+    padding: 20px 40px;
 }
 .table {
     margin-top: 20px;
+    overflow-y: auto;
+}
+td {
+    padding: 10px!important;
 }

@@ -4,7 +4,7 @@ const student = require('../sqlStatement/connectDetail.js');
 
 // 用于post请求；
 // 创建 application/x-www-form-urlencoded 编码解析
-let bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // 解决跨域问题；

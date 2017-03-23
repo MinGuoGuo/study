@@ -12,9 +12,9 @@ class Counter extends Component {
                 <p>
                     currentNo is <span style={{color: 'red', marginRight: 20}}>{ num }</span>
                     &nbsp;
-                    <button onClick={add}>加法</button>
+                    <button onClick={() => {add(2)}}>加法</button>
                     &nbsp;&nbsp;
-                    <button onClick={sub}>减法</button>
+                    <button onClick={() => {sub(1)}}>减法</button>
                 </p>
             </div>
         )
@@ -32,6 +32,7 @@ Counter.PropTypes = {
 // 将state绑定到ui组件的props上去；
 const mapStateToProps = (state) => {
     console.log('state.counter', state.counter);
+    console.log(state);
     return {
         num: state.counter
     }

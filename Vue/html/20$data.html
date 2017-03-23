@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello Vue!!!</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 ref="p" :title="message">
+            {{ message }}
+        </h1>
+        <button @click="test">test</button>
+        <child ref="child"></child>
+    </div>
+    <script src="../base/vue.js"></script>
+    <script>
+        const message = 'Hello Vue!'
+        let Child = {
+                template: '<button @click="a">子组件</button>',
+                methods: {
+                    a() {
+                        console.log(this.$parent);
+                    }
+                }
+        }
+        let app = new Vue({
+            el: '#app',
+            components: {
+                Child
+            },
+            data() {
+                return {
+                    message: 'Hello Vue!'
+                }
+                 
+            },
+            methods: {
+                test() {
+                    // this.message = '你妹'
+                    // console.log(this.$data);
+                    // console.log(this.$el);
+                    // console.log(this.$options);
+                    // console.log(this.$root);
+                    // console.log(this.$children)
+                    this.message = 'reUpdate Component!';
+                    console.log(this.$refs.p.title);
+                    console.log(this.$refs.child);
+                }
+            },
+            mounted() {
+                console.log('组件已经渲染完成！')
+            },
+            created() {
+                console.log('调用created！')
+            },
+             beforeCreate() {
+                console.log('组件第一次渲染之前！')
+            },
+            beforeUpdate() {
+                console.log('组件重新渲染之前！')
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="app">
+            <my_component></my_component>
+            <br>
+            <my_child :ref="prop" 
+        			  :prop-name="name">
+		  	</my_child>	
+            <br />
+            <!-- <input type="text" v-model="message">
+            <br> -->
+            <button @click="reset">重置</button>
+        </div>
+        <script src="../base/vue.js"></script>
+        <script>
+            // 必要步骤，注册一个组件；
+            // Vue.component('my_component', {
+            //     template: '<div>My first component!</div>'
+            // });
+
+            // 局部注册；
+            //var data = { counter: 0 }
+            
+            var Child = {
+                template: '<input v-model="counter"/>',
+                data: function () {
+                    return {
+                        counter: 0
+                    }
+                },
+                methods: {
+                    add() {
+                        this.counter += 1;
+                    }
+                }
+            }
+            var Childer = {
+                template: '<input v-model="counter"/>',
+                data: function () {
+                    return {
+                        counter: 3,
+                    }
+                },
+                methods: {
+                    add() {
+                        this.counter += 1;
+                    }
+               }
+           	}
+            // 创建根实例;
+            new Vue({
+                el: '#app',
+                data() {
+                	return {
+                		message: 'hello',
+                        prop: 'hello',
+                        name: 'myInput'
+                	}
+                },
+                components: {
+                    'my_component': Child,
+                    'my_child': Childer
+                },
+                methods: {
+                	reset() {
+                		console.log(this.$children[0].counter);
+                		console.log(this.$refs[this.prop].counter)
+                		this.$children[0].counter = 0;
+                	}
+                }
+            })
+        </script>
+    </body>
+</html>
