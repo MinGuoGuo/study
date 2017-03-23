@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>v-bind</title>
     <style>
-    .box {
-        border:1px dashed #f0f;
-    }
-    .textColor {
-        color:#f00;
-        background-color:#eef;
-    }
-    .textSize {
-        font-size:30px;
-        font-weight:bold;
-    }
+        .box {
+            border:1px dashed #f0f;
+        }
+        .textColor {
+            color:#f00;
+            background-color:#eef;
+        }
+        .textSize {
+            font-size:30px;
+            font-weight:bold;
+        }
     </style>
 </head>
+
 <body>
     <!-- v-bind的实质就是添加一个自定义属性 -->
     <!-- 通过指令传入数组 -->
@@ -33,9 +35,9 @@
     <script src="../base/vue.js"></script>
     <script>
         var oBtn = document.getElementById('btn');
-        var vm= new Vue({
+        var vm = new Vue({
             el: '#app',
-            data:{
+            data: {
                 classA: 'textColor',
                 classB: 'textSize',
                 isA: false
@@ -52,4 +54,5 @@
         });
     </script>
 </body>
+
 </html>
