@@ -127,6 +127,11 @@ class studentList extends Component {
                         <FormItem
                             label="年龄"
                         >
+                          {/* {getFieldDecorator('password', {
+                            rules: [{ required: true, message: 'Please input your Password!' }],
+                          })( */}
+                            <Input placeholder="年龄 " />
+                          {/* )} */}
                             {getFieldDecorator('age')(
                                 <Input />
                             )}
