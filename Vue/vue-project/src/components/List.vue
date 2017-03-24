@@ -16,13 +16,14 @@
             <el-table-column prop="test_name" label="姓名" width="180"></el-table-column>
             <el-table-column prop="test_age" label="年龄" width="180"></el-table-column>
             <el-table-column prop="test_phone" label="电话"></el-table-column>
+            <el-table-column prop="test_sex" label="性别"></el-table-column>
             <el-table-column label="操作">
                 <template scope="scope">
                     <el-button  @click="handleView(scope.$index, scope.row.test_id)" type="text" size="small">查看</el-button>
                     <el-button id="id" type="text" size="small">编辑</el-button>
                     <el-button  @click="handleDel(scope.$index, scope.row.test_id)" type="text" size="small">删除</el-button>
                 </template>
-            </el-table-column>handleDel
+            </el-table-column>
         </el-table>
         <div class="pagination">
             <el-pagination

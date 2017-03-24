@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<label for="">
+			喜欢<input name="like" type="radio" value="1"/>
+		</label>
+		<label for="">
+			不喜欢<input name="like" type="radio" value="0"/>
+		</label>
+	</body>
+	<script>
+		var oLike = document.getElementsByName('like');
+		for(var i = 0; i < oLike.length; i++) {
+			oLike[i].onclick = function() {
+				if(this.checked) {
+					console.log(this.value);
+				}
+			}
+		}
+	</script>
+</html>
