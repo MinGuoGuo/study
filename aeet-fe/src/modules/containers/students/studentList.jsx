@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import $ from 'jquery';
 const FormItem = Form.Item;
 import { getStudentsList, delStudent } from '../../actions/index.jsx';
 function hasErrors(fieldsError) {
@@ -16,11 +15,33 @@ class studentList extends Component {
     componentWillMount() {
 
     }
+    componentWillReceiveProps(nextProps) {
+      // console.log(nextProps);
+        if(nextProps.isUpdate) {
+            const { dispatch, current } = this.props;
+            let searchData = this.props.form.getFieldsValue();
+            searchData.pagesize = 5;
+            searchData.page = current;
+            for (var i in searchData) {
+                if(searchData[i] == undefined) {
+                    searchData[i] = '';
+                }
+            };
+            dispatch({
+                type: 'ISUPDATE',
+                payload: {
+                  isUpdate: false
+                }
+            });
+            dispatch(getStudentsList(searchData));
+        }
+    }
     componentDidMount() {
-        let obj = {name: '', age: '', page: 1, pagesize: 10};
         const { dispatch } = this.props;
+        const obj = {name: '', age: '', page: 1, pagesize: 5};
         dispatch(getStudentsList(obj));
     }
+    // 搜索事件
     searchClick() {
         const { dispatch } = this.props;
         let searchData = this.props.form.getFieldsValue();
@@ -33,14 +54,17 @@ class studentList extends Component {
         }
         dispatch(getStudentsList(searchData));
     }
+    // 删除事件；
     delClick(id) {
-        const { dispatch, pagination } = this.props;
+        const { dispatch } = this.props;
+        dispatch({
+            type: 'ISUPDATE',
+            payload: {
+                isUpdate: false
+            }
+        })
         dispatch(delStudent({id: id}));
-        // let searchData = this.props.form.getFieldsValue();
-        // console.log('pagination', pagination);
-        // searchData.page = pagination.current;
-        // searchData.pagesize = 5;
-        // dispatch(getStudentsList(searchData));
+        
     }
     handTableChange(e) {
         const { dispatch } = this.props;
@@ -55,7 +79,6 @@ class studentList extends Component {
         dispatch(getStudentsList(searchData));
     }
     render() {
-        const { data, pagination } = this.props;
         const columns = [{
           title: '姓名',
           dataIndex: 'test_name',
@@ -89,6 +112,7 @@ class studentList extends Component {
           )
         }];
         const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
+        const { studentListData, pagination, isUpdate, current } = this.props;
         return (
             <div>
                 <div className="search-selection">
@@ -133,7 +157,7 @@ class studentList extends Component {
                     </div>
                 </div>
                 <div className="table">
-                    <Table bordered pagination={pagination} onChange={this.handTableChange.bind(this)} columns={columns} dataSource={data}  rowKey={(record, index)=>index} />
+                    <Table bordered pagination={pagination} onChange={this.handTableChange.bind(this)} columns={columns} dataSource={studentListData}  rowKey={(record, index)=>index} />
                 </div>
             </div>
         )
@@ -141,19 +165,19 @@ class studentList extends Component {
 }
 const student = Form.create()(studentList);
 
-//将所有的state绑定到ui组件上去；
-//const mapStateToProps = (state) => {j/
-//    console.log('state', state.initStudentList);
-//    return {
-//        data: state
-//    }
-//};
+
 function mapStateToProps(state) {
-    const data = state.initStudentList.studentListData;
-    const pagination = state.initStudentList.pagination;
+    const { 
+        current, 
+        isUpdate,
+        pagination,
+        studentListData, 
+    } = state.initStudentList;
     return {
-        data,
-        pagination
+        current, 
+        isUpdate,
+        pagination,
+        studentListData
     }
 }
 

@@ -2,5 +2,7 @@ export const initialState = {
     studentListData: [],
     buttonLoading: false,
     loadingText: '保存',
-    pagination: {}
+    pagination: {},
+    isUpdate: false,
+    current: ''
 };

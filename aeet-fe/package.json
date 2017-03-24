@@ -44,7 +44,7 @@
   "scripts": {
     "build": "atool-build -o ./build",
     "lint": "eslint --ext .js,.jsx src/",
-    "start": "dora --port 9000 --plugins \"proxy?watchDirs=./src,webpack,webpack-hmr\"",
+    "start": "dora --port 8888 --plugins \"proxy?watchDirs=./src,webpack,webpack-hmr\"",
     "test": "atool-test-mocha ./**/__tests__/*-test.js"
   }
 }

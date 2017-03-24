@@ -1,9 +1,9 @@
 import { urlConfig } from '../../api';
-import $ from 'jquery'
 import * as types from '../../constants/ActionType.jsx'
 import fetch from 'isomorphic-fetch';
+import {message} from 'antd';
 
-export const getStudentsList = (queryObj) => {
+export const getStudentsList = (queryObj, message) => {
     return dispatch => {
        return fetch('http://127.0.0.1/sellDoor/php/list.php', {
             method: 'POST',
@@ -17,7 +17,7 @@ export const getStudentsList = (queryObj) => {
             dispatch(receiveStudentList(result));
         })
         .catch((error) => {
-            alert('请求失败呀')
+            message.error('参数错误!')
         })
 
     };

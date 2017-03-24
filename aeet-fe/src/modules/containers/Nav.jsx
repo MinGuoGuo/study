@@ -45,7 +45,7 @@ export default class Nav extends Component {
         onClick={this.handleClick}
       >
         <SubMenu key="sub1" title={<span><Icon type="user" /><span>资产管理人</span></span>}>
-          <Menu.Item key="1">Option 1</Menu.Item>
+          <Menu.Item key="1">学生列表</Menu.Item>
           <Menu.Item key="2">Option 2</Menu.Item>
           <Menu.Item key="3">Option 3</Menu.Item>
           <Menu.Item key="4">Option 4</Menu.Item>

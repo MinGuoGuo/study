@@ -1,8 +1,6 @@
 import { urlConfig } from '../../api';
-import $ from 'jquery'
-import * as types from '../../constants/ActionType.jsx'
-import { getStudentsList } from './students.jsx';
 import fetch from 'isomorphic-fetch';
+import { message } from 'antd';
 
 // 删除成功以后重新调用渲染列表的action
 
@@ -14,20 +12,25 @@ export const delStudent = (queryObj) => {
             body: JSON.stringify(queryObj)
         })
         .then( (response) => {
-            return response.json()
+            return response.json();
         })
         .then((result)=>  {
-            console.log(result);
+            if (result.code == 1) {
+                message.success('删除成功！');
+                dispatch({
+                    type: 'ISUPDATE',
+                    payload: {
+                        isUpdate: true
+                    }
+                });
+            } else {
+                message.error('删除失败！')
+            }
         })
         .catch((error) => {
-            alert('删除失败')
+            debugger;
+            message.error('参数错误！')
         });
     };
 };
 
-//function delStudents(data) {
-//    return {
-//        type: types.DELSTUDENT,
-//        payLoad: data
-//    }
-//}

@@ -1,7 +1,7 @@
 import { urlConfig } from '../../api';
-import $ from 'jquery'
+import { message } from 'antd';
 
-export const addStudent = studentParam => {
+export const addStudent = (studentParam, message) => {
     return dispatch => {
         return fetch('http://127.0.0.1/sellDoor/php/add.php', {
             method: 'POST',
@@ -15,9 +15,9 @@ export const addStudent = studentParam => {
         })
         .then((result) => {
             if (result.code == 1) {
-                alert('保存成功')
+                message.success('保存成功')
             } else {
-                alert('保存失败！')
+                message.error('保存失败！')
             }
             dispatch({
                 type: 'BUTTONLOADING',
@@ -36,7 +36,7 @@ export const addStudent = studentParam => {
                     loadingText: '保存'
                 }
             });
-            alert('保存失败！');
+            message.error('保存失败！');
         })
     }
 };

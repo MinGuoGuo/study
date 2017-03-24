@@ -18,7 +18,7 @@
             <el-submenu index="2">
               <template slot="title"><i class="el-icon-menu"></i>导航二</template>
               <el-menu-item-group>
-                <el-menu-item index="2-1">选项3</el-menu-item>
+                <el-menu-item index="2-1">vuex</el-menu-item>
                 <el-menu-item index="2-2">选项4</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
@@ -89,7 +89,14 @@ body {
   margin-left: 210px;
   padding: 0 10px;
 }
+a {
+  color: #000!important;
+  text-decoration: none;
+}
 .header .router-link-active {
-  color: #000;
+    color: #20a0ff;
+}
+.el-menu-item.is-active a{
+    color: #20a0ff!important;
 }
 </style>
