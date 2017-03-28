@@ -14,11 +14,11 @@ export default new Router({
       path: '/',
       name: 'Hello',
       component: Hello
-    },{
+    }, {
       path: '/list',
       name: 'List',
       component: List
-    },{
+    }, {
       path: '/counter',
       name: 'Couter',
       component: Counter

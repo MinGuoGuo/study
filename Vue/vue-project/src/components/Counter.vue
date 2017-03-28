@@ -13,6 +13,13 @@ export default {
             counter: 0
         }
     },
-
+    methods: {
+        conso() {
+            console.log(this.$store);
+        }
+    }, 
+    mounted() {
+        console.log(this.$store);
+    }
 }
 </script>
