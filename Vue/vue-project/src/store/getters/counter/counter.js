@@ -1,1 +1,1 @@
-export const counter = state.counter;
+export const count = state => state.counter.count;

@@ -72,6 +72,8 @@
     text-align: center;
     z-index: 1000;
     color: #fff;
+    height: 80px;
+    line-height: 80px;
 }
 .nav-bar {
     height: 100%;

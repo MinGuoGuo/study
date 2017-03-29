@@ -1,4 +1,4 @@
-import counter from './counter/counter';
+import { count } from './counter/counter';
 export default {
-    counter
+    count
 }

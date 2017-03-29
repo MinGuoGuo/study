@@ -1,14 +1,4 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-// import * as mutations from './mutations'
-// import * as actions from './actions'
-import createLogger from 'vuex/dist/logger'
-import { increment } from './actions/counter'
-import { counterUp } from './mutations/counter'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+/*export default new Vuex.Store({
     state: {
         num: 0,
         list: [],
@@ -50,22 +40,20 @@ export default new Vuex.Store({
     plugins: [
         createLogger()
     ]
-})
-// import Vue from 'vue';
-// import Vuex from 'vuex';
-// import actions from './actions';
-// import getters from './modules';
-// import modules from './modules';
-// import createLogger from '../utils/plugins/logger';
-// import plugins from './plugins';
-// console.log(createLogger);
-// console.log(modules, actions, getters);
+})*/
+import Vue from 'vue';
+import Vuex from 'vuex';
+import actions from './actions';
+import getters from './getters';
+import modules from './modules';
+import plugins from './plugins';
+import createLogger from 'vuex/dist/logger'
+console.log(actions)
+Vue.use(Vuex);
 
-// Vue.use(Vuex);
-
-// export default new Vuex.Store({
-//     actions, 
-//     getters, 
-//     modules,
-//     plugins
-// });
+export default new Vuex.Store({
+    actions, 
+    getters, 
+    modules,
+   plugins: [createLogger()]
+});

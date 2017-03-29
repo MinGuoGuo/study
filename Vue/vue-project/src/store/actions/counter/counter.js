@@ -1,7 +1,7 @@
 
-export const ADD = () => {
-    commit('ADD');
+export const ADD = ({commit}, num) => {
+    commit('ADD', num);
 }   
-export const SUB = () => {
+export const SUB = ({commit}) => {
     commit('SUB');
 }
