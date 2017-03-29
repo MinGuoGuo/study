@@ -3,12 +3,15 @@
 import Vue from 'vue'
 import ElementUI from 'element-ui'
 import App from './App'
+import store from './store'
 import router from './router'
 
 Vue.use(ElementUI)
 /* eslint-disable no-new */
-new Vue({
+const vm = new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
+

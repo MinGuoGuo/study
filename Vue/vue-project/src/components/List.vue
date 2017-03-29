@@ -2,14 +2,14 @@
     <div>
         <div class="search-area">
             <el-form :inline="true" class="demo-form-inline">
-              <el-form-item label="姓名">
-                <el-input v-model="name" placeholder="姓名"></el-input>
-              </el-form-item>
-              <el-form-item label="年龄">
-                   <el-input v-model="age" placeholder="年龄"></el-input>
-              </el-form-item><el-form-item>
-                <el-button type="primary" @click="onSubmit">查询</el-button>
-              </el-form-item>
+                <el-form-item label="姓名">
+                    <el-input v-model="name" placeholder="姓名"></el-input>
+                </el-form-item>
+                <el-form-item label="年龄">
+                    <el-input v-model="age" placeholder="年龄"></el-input>
+                </el-form-item><el-form-item>
+                    <el-button type="primary" @click="onSubmit">查询</el-button>
+                </el-form-item>
             </el-form>
         </div>
         <el-table :data="tableData" border style="width: 100%">
