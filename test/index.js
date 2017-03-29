@@ -218,30 +218,29 @@ const arr = [1, 3, 5, 6];
 }*/
 
 class Hello extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.text.value);
-    // 以下是直接用refs取到ref的值
-    // alert('A name was submitted: ' + this.refs.input.value);
-    event.preventDefault();
-  }
+    handleSubmit(event) {
+        alert('A name was submitted: ' + this.text.value);
+        // 以下是直接用refs取到ref的值
+        // alert('A name was submitted: ' + this.refs.input.value);
+        event.preventDefault();
+    }
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" title="请输入姓名！" ref={(text) => this.text = text} />
-          {/* <input type="text" ref="input" /> */}
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    );
-  }
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    Name:<input type="text" title="请输入姓名！" ref={(text) => this.text = text} />
+                    {/* <input type="text" ref="input" /> */}
+                </label>
+                <input type="submit" value="Submit" />
+            </form>
+        );
+    }
 }
 
 ReactDOM.render(<Hello name="js" arr={arr} messages={messages} num={4} />, document.getElementById('root'));

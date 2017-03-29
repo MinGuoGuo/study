@@ -5,6 +5,7 @@ import ElementUI from 'element-ui'
 import App from './App'
 import store from './store'
 import router from './router'
+import store from '../src/store';
 
 Vue.use(ElementUI)
 /* eslint-disable no-new */
