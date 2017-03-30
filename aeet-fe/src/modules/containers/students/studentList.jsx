@@ -78,9 +78,6 @@ class studentList extends Component {
         searchData.pagesize = 5;
         dispatch(getStudentsList(searchData));
     }
-    handleClick() {
-       this.props.children = '<h1>你妹</h1>'
-    }
     render() {
         const columns = [{
           title: '姓名',
@@ -133,7 +130,6 @@ class studentList extends Component {
                           {/* {getFieldDecorator('password', {
                             rules: [{ required: true, message: 'Please input your Password!' }],
                           })( */}
-                            <Input placeholder="年龄 " />
                           {/* )} */}
                             {getFieldDecorator('age')(
                                 <Input />
@@ -163,7 +159,6 @@ class studentList extends Component {
                             </Button>
                         </FormItem>
                     </div>
-                    <button onClick={this.handleClick.bind(this)}>待办事项</button>
                 </div>
                 <div className="table">
                     <Table bordered pagination={pagination} onChange={this.handTableChange.bind(this)} columns={columns} dataSource={studentListData}  rowKey={(record, index)=>index} />

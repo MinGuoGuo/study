@@ -17,6 +17,9 @@ export default {
     },
     computed: {
         ...mapGetters(['count']),
+        // count() {
+        //     return this.$store.state.counter.count
+        // }
     },
     methods: {
         ...mapActions(['ADD', 'SUB']),
@@ -25,12 +28,13 @@ export default {
             this.ADD({num: 5});
         },
         sub() {
-            this.$store.dispatch('SUB');
+            // this.$store.dispatch('SUB');
+            this,SUB();
         }
         
     }, 
     mounted() {
-        console.log(this.counter)
+        console.log(this.$store.state)
     }
 }
 </script>

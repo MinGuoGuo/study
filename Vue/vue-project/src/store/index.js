@@ -48,12 +48,12 @@ import getters from './getters';
 import modules from './modules';
 import plugins from './plugins';
 import createLogger from 'vuex/dist/logger'
-console.log(actions)
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     actions, 
     getters, 
     modules,
-   plugins: [createLogger()]
+    plugins: [createLogger()]
 });

@@ -10,8 +10,8 @@ const rootReducer = combineReducers({
 const loggerMiddleware = createLogger();  // 打印日志用的；
 
 const createStoreWithMiddleware = applyMiddleware(
-    thunkMiddleware
-    //loggerMiddleware
+    thunkMiddleware,
+    loggerMiddleware
 )(createStore);
 
 export default function configureStore(state) {

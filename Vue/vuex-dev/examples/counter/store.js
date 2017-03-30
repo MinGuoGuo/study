@@ -26,9 +26,11 @@ const mutations = {
 // actions are functions that causes side effects and can involve
 // asynchronous operations.
 const actions = {
+  // 直接将mutations提交；
   increment: ({ commit }) => commit('increment'),
   decrement: ({ commit }) => commit('decrement'),
   incrementIfOdd ({ commit, state }) {
+    console.log(commit);
     if ((state.count + 1) % 2 === 0) {
       commit('increment')
     }
