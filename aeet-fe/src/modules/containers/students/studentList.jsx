@@ -16,7 +16,6 @@ class studentList extends Component {
 
     }
     componentWillReceiveProps(nextProps) {
-      // console.log(nextProps);
         if(nextProps.isUpdate) {
             const { dispatch, current } = this.props;
             let searchData = this.props.form.getFieldsValue();

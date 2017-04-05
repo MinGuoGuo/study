@@ -29,10 +29,10 @@ export default {
         },
         sub() {
             // this.$store.dispatch('SUB');
-            this,SUB();
+            this.SUB();
         }
         
-    }, 
+    },
     mounted() {
         console.log(this.$store.state)
     }
