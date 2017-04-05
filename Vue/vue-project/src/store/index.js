@@ -47,7 +47,7 @@ import actions from './actions';
 import getters from './getters';
 import modules from './modules';
 import plugins from './plugins';
-import createLogger from 'vuex/dist/logger'
+import createLogger from 'vuex/dist/logger';
 
 Vue.use(Vuex);
 
