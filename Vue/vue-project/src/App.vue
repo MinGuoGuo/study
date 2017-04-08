@@ -24,7 +24,9 @@
                         <el-submenu index="2">
                             <template slot="title"><i class="el-icon-menu"></i>导航二</template>
                             <el-menu-item-group>
-                                <el-menu-item index="2-1">选项3</el-menu-item>
+                                <el-menu-item index="">
+                                    <router-link to="/counters">vue</router-link>
+                                </el-menu-item>
                                 <el-menu-item index="2-2">选项4</el-menu-item>
                             </el-menu-item-group>
                         </el-submenu>

@@ -12,24 +12,25 @@
     </style>
 </head>
 <body>
+    <!-- 循环对象 -->
     <div id="app">
-        <ol>
-            <li v-for="(data, index) in todos" v-bind:id="index">
-                {{ data.text }}
+        <ul>
+            <li v-for="(item, key, index) in todos" v-bind:id="index">
+                {{ key }}
                 <a href="javascript:;" v-bind:id="index" v-on:click="del">X</a>
             </li>
-        </ol>
+        </ul>
     </div>
     <script src="../base/vue.js"></script>
     <script>
         var app = new Vue({
             el: '#app',
             data: {
-                todos:[
-                    { id: 1, text: 'Vue' },
-                    { id: 2, text: 'React' },
-                    { id: 3, text: 'Node' }
-                ]
+                todos:{
+                    'haha': 'lbj',
+                    'heihei': 'kb',
+                    'xixi': 'wd'
+                }
             },
             methods: {
                 del: function (event) {

@@ -1,6 +1,3 @@
-import {fetchData} from '../../../utils/fetch';
-
-
 export const ADD = ({commit}, num) => {
     commit('ADD', num);
 }   
