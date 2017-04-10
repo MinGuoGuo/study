@@ -27,7 +27,9 @@
                                 <el-menu-item index="">
                                     <router-link to="/counters">vue</router-link>
                                 </el-menu-item>
-                                <el-menu-item index="2-2">选项4</el-menu-item>
+                                <el-menu-item index="2-2">
+                                    <router-link to="/StudentList">vuex异步请求</router-link>    
+                                </el-menu-item>
                             </el-menu-item-group>
                         </el-submenu>
                         <el-submenu index="3">

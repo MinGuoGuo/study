@@ -1,18 +1,25 @@
 import 'whatwg-fetch';
+import { Message } from 'element-ui';
 
-export const fetchDta = (url, params) => {
-    return async ({commit}, options = {}) => {
-                const result = await fetch(url, {
-                    method: 'POST',
-                    headers: {'Content-Type': 'text/plain'},
-                    body: JSON.stringify(params)
-                })
-                .then( (response) => {
-                    return response.json();
-                 })
-                .catch((error) => {
-                    console.log('请求失败！')
-                });
-                commit('getList', result);
-        }
-}
+const fetchData = (url, params, callback) => {
+    fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(params)
+    })
+    .then((response) => {
+        return response.json()
+    })
+    .then((result) => {
+        callback(result) 
+    })
+    .catch((error) => {
+        debugger;
+         Message({
+            message: '参数错误',
+            type: 'error'
+        });
+    });
+};
+
+export default fetchData;
